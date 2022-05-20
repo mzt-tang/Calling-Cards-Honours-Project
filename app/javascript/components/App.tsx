@@ -2,10 +2,8 @@ import React, { useState } from 'react';
 import Button from '@mui/material/Button';
 import { v4 as uuid } from 'uuid';
 import CardType, { defCardPos } from '../types/card';
-import InputCard from './InputCard';
 import VariableCard from './VariableCard';
-import SimpleExample from './Test';
-import Xarrow, { arrowShapes, Xwrapper } from 'react-xarrows';
+import Xarrow, { Xwrapper } from 'react-xarrows';
 
 export default function App() {
   const [cards, setCards] = useState<CardType[]>([]);
