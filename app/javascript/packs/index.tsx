@@ -5,22 +5,12 @@
 import React from 'react'
 import { createRoot } from 'react-dom/client';
 
-import Draggable from 'react-draggable';
+import App from '../components/App';
 
 document.addEventListener('DOMContentLoaded', () => {
   const container = document.getElementById('root');
   const root = createRoot(container!); // createRoot(container!) if you use TypeScript
-  root.render(<App tab='home' />);
+  root.render(<App />);
 })
 
-function App({tab}) {
-  return (
-    <div className='app'>
-      <Draggable>
-        <div className="box">
-            <div>Movable box!</div>
-        </div>
-      </Draggable>
-    </div>
-  );
-};
+
