@@ -31,6 +31,8 @@ module CallingCards
     #
     # config.time_zone = "Central Time (US & Canada)"
     # config.eager_load_paths << Rails.root.join("extras")
+    config.generators.assets = false
+    config.generators.helper = false
 
     # Don't generate system test files.
     config.generators.system_tests = nil

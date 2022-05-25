@@ -1,14 +1,15 @@
 import React, { useState } from 'react';
 import Button from '@mui/material/Button';
-import { v4 as uuid } from 'uuid';
-import CardType, { defCardPos } from '../types/card';
-import VariableCard from './VariableCard';
 import Xarrow, { Xwrapper } from 'react-xarrows';
+import { v4 as uuid } from 'uuid';
+import CardType, { defCardPos } from '@cc-types/card';
+import StringCard from '@cc-components/StringCard';
 
 export default function App() {
   const [cards, setCards] = useState<CardType[]>([]);
   const [arrows, setArrows] = useState([]);
   const [connect, setConnect] = useState([]);
+  const [outputId, setOutputId] = useState<string>(null);
 
   const newCard = () => {
     const newCard: CardType = { id: uuid(), position: defCardPos };
@@ -19,19 +20,21 @@ export default function App() {
     setArrows([...arrows, { start, end }]);
   };
 
-  const doConnect = (id) => {
-    if (connect.length === 0) {
-      setConnect([id]);
-    } else if (connect.length !== 0 && connect[0] !== id) {
-      addArrow({ start: connect[0], end: id });
-      setConnect([]);
-    }
+  const takeOutput = (id: string) => {
+    setOutputId(id);
+  };
+
+  const giveInput = (id: string) => {
+    if (outputId === null) return;
+    addArrow({ start: outputId, end: id });
+    setOutputId(null);
   };
 
   const listCards = cards.map((c) => {
     return (
-      <VariableCard
-        doConnect={doConnect}
+      <StringCard
+        takeOutput={takeOutput}
+        giveInput={giveInput}
         key={c.id}
         id={c.id}
         defPos={c.position}

@@ -11,13 +11,24 @@
     "sourceMap": true,
     "target": "es5",
     "jsx": "react",
-    "noEmit": true
+    "noEmit": true,
+    "baseUrl": "./",
+    "paths": {
+      "@cc-components/*": ["app/javascript/components/*"],
+      "@cc-types/*": ["app/javascript/types/*"],
+      "@cc-styles/*": ["app/assets/stylesheets/*"]
+    }
   },
+  "include": [
+    "**/*.ts",
+    "**/*.tsx",
+    "**/*.scss"
+  ],
   "exclude": [
     "**/*.spec.ts",
     "node_modules",
     "vendor",
     "public"
   ],
-  "compileOnSave": false,
+  "compileOnSave": false
 }

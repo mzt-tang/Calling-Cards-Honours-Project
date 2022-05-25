@@ -1,0 +1,36 @@
+.box {
+  position: relative;
+  cursor: move;
+  background-color: green;
+  color: black;
+  width: 200px;
+  height: 100px;
+  border-radius: 5px;
+  padding: 1em;
+  margin: auto;
+  user-select: none;
+}
+
+.connector {
+  background-color: orange;
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+
+  &:hover {
+    background-color: bisque;
+  }
+
+  &.input {
+    top: 50%;
+    left: 0;
+    transform: translate(-50%, -50%);
+  }
+
+  &.output {
+    top: 50%;
+    left: 100%;
+    transform: translate(-50%, -50%);
+  }
+}
