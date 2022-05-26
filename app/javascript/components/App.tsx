@@ -8,7 +8,6 @@ import StringCard from '@cc-components/StringCard';
 export default function App() {
   const [cards, setCards] = useState<CardType[]>([]);
   const [arrows, setArrows] = useState([]);
-  const [connect, setConnect] = useState([]);
   const [outputId, setOutputId] = useState<string>(null);
 
   const newCard = () => {
@@ -43,7 +42,15 @@ export default function App() {
   });
 
   const listArrows = arrows.map((a) => {
-    return <Xarrow key={`${a.start}-${a.end}`} start={a.start} end={a.end} />;
+    return (
+      <Xarrow
+        key={`${a.start}-${a.end}`}
+        start={a.start}
+        end={a.end}
+        startAnchor="right"
+        endAnchor="left"
+      />
+    );
   });
 
   return (
