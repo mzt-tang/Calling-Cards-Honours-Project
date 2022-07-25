@@ -3,42 +3,62 @@ import Button from '@mui/material/Button';
 import Xarrow, { Xwrapper } from 'react-xarrows';
 import { v4 as uuid } from 'uuid';
 import CardType, { defCardPos } from '@cc-types/card';
-import StringCard from '@cc-components/StringCard';
+import Card from '@cc-components/Card';
 
 export default function App() {
   const [cards, setCards] = useState<CardType[]>([]);
   const [arrows, setArrows] = useState([]);
-  const [outputId, setOutputId] = useState<string>(null);
+  const [inputs, setInputs] = useState<object>({});
+  const [outputs, setOutputs] = useState<object>({});
 
-  const newCard = () => {
-    const newCard: CardType = { id: uuid(), position: defCardPos };
+  const [connect, setConnect] = useState<string>(null); // Connect
+
+  const newStringCard = () => {
+    const newId = uuid();
+    const newCard: CardType = { id: newId, position: defCardPos, type: 'string' };
     setCards((cards) => [...cards, newCard]);
+    setInputs({ ...inputs, [newId]: {} });
+    setOutputs({ ...outputs, [newId]: '' });
+  };
+
+  const newConcatCard = () => {
+    const newId = uuid();
+    const newCard: CardType = { id: newId, position: defCardPos, type: 'stringConcat' };
+    setCards((cards) => [...cards, newCard]);
+    setInputs({ ...inputs, [newId]: {} });
+    setOutputs({ ...outputs, [newId]: '' });
   };
 
   const addArrow = ({ start, end }) => {
     setArrows([...arrows, { start, end }]);
   };
 
-  const takeOutput = (id: string) => {
-    setOutputId(id);
+  const takeConnect = (id: string) => {
+    setConnect(id);
   };
 
   const giveInput = (id: string) => {
-    if (outputId === null) return;
-    addArrow({ start: outputId, end: id });
-    setOutputId(null);
+    if (connect === null) return;
+    const oId = connect;
+    addArrow({ start: oId, end: id });
+    setConnect(null);
+    return oId;
   };
 
   const listCards = cards.map((c) => {
-    return (
-      <StringCard
-        takeOutput={takeOutput}
-        giveInput={giveInput}
-        key={c.id}
-        id={c.id}
-        defPos={c.position}
-      />
-    );
+    const cardProps = {
+      key: c.id,
+      id: c.id,
+      type: c.type,
+      startPos: c.position,
+      inputs,
+      setInputs,
+      outputs,
+      setOutputs,
+      takeId: takeConnect,
+      giveInput,
+    };
+    return <Card {...cardProps} />;
   });
 
   const listArrows = arrows.map((a) => {
@@ -49,14 +69,20 @@ export default function App() {
         end={a.end}
         startAnchor="right"
         endAnchor="left"
+        color="coral"
+        path="grid"
       />
     );
   });
 
   return (
     <div className="app">
-      <Button variant="contained" onClick={newCard}>
-        New Box
+      <Button variant="contained" onClick={newStringCard}>
+        String Card
+      </Button>
+
+      <Button variant="contained" onClick={newConcatCard}>
+        String Concat Card
       </Button>
       <Xwrapper>
         {listCards}
