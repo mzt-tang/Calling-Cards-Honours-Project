@@ -17,7 +17,6 @@ export default function App() {
     const newId = uuid();
     const newCard: CardType = { id: newId, position: defCardPos, type: 'string' };
     setCards((cards) => [...cards, newCard]);
-    setInputs({ ...inputs, [newId]: {} });
     setOutputs({ ...outputs, [newId]: '' });
   };
 
@@ -25,7 +24,7 @@ export default function App() {
     const newId = uuid();
     const newCard: CardType = { id: newId, position: defCardPos, type: 'stringConcat' };
     setCards((cards) => [...cards, newCard]);
-    setInputs({ ...inputs, [newId]: {} });
+    setInputs({ ...inputs, [newId]: { id1: '', id2: '' } });
     setOutputs({ ...outputs, [newId]: '' });
   };
 
@@ -38,9 +37,12 @@ export default function App() {
   };
 
   const giveInput = (id: string) => {
-    if (connect === null) return;
+    if (connect === null) {
+      console.log('this should return...');
+      return;
+    }
     const oId = connect;
-    addArrow({ start: oId, end: id });
+    if (!arrows.find((a) => a.start === oId && a.end === id)) addArrow({ start: oId, end: id }); // stops same key issues
     setConnect(null);
     return oId;
   };
@@ -71,9 +73,19 @@ export default function App() {
         endAnchor="left"
         color="coral"
         path="grid"
+        passProps={{
+          id: `${a.start}-${a.end}`,
+          onClick: (e) => {
+            deleteArrow(e.currentTarget.id);
+          },
+        }}
       />
     );
   });
+
+  const deleteArrow = (id: string) => {
+    setArrows(arrows.filter((a) => `${a.start}-${a.end}` !== id));
+  };
 
   return (
     <div className="app">

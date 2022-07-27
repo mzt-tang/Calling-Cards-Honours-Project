@@ -3,7 +3,7 @@ import Draggable, { DraggableData } from 'react-draggable';
 import PositionType from '../types/position';
 import { useXarrow } from 'react-xarrows';
 
-// import '@cc-styles/card_wrapper.scss';
+import '@cc-styles/card_wrapper.scss';
 
 export default function CardWrapper({
   id,

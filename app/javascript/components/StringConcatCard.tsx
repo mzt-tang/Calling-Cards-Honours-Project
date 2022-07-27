@@ -1,70 +1,60 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import PositionType from '@cc-types/position';
-import Draggable, { DraggableData } from 'react-draggable';
-import { useXarrow } from 'react-xarrows';
 
-// import '@cc-styles/card_wrapper.scss';
+import '@cc-styles/card_content.scss';
+import CardWrapper from '@cc-components/CardWrapper';
 
 export default function StringConcatCard({
   id,
-  defPos,
+  startPos,
   outputs,
   setOutputs,
+  inputs,
+  setInputs,
   takeId,
   giveInput,
 }: {
   id: string;
-  defPos: PositionType;
-  outputs: any;
-  setOutputs: any;
+  startPos: PositionType;
+  outputs: object;
+  setOutputs: React.Dispatch<React.SetStateAction<object>>;
+  inputs: object;
+  setInputs: React.Dispatch<React.SetStateAction<object>>;
   takeId: (id: string) => void;
   giveInput: (id: string) => string;
 }) {
-  const [inputIds, setInputIds] = useState<{ id1: string; id2: string }>({ id1: '', id2: '' });
-  const [position, setPosition] = useState<PositionType>(defPos);
-  const updateXarrow = useXarrow();
-
   const connectorOneId = id + '#i1';
   const connectorTwoId = id + '#i2';
 
-  const handleDragStop = (_e, data: DraggableData) => {
-    updateXarrow();
-    setPosition({ x: data.x, y: data.y });
-  };
-
   const handleFirstInput = () => {
-    setInputIds({ ...inputIds, id1: giveInput(connectorOneId) });
+    const inputId = giveInput(connectorOneId);
+    if (inputId === null) return;
+    setInputs({ ...inputs, [id]: { ...inputs[id], id1: inputId } });
   };
 
   const handleSecondInput = () => {
-    setInputIds({ ...inputIds, id2: giveInput(connectorTwoId) });
+    const inputId = giveInput(connectorTwoId);
+    if (inputId === null) return;
+    setInputs({ ...inputs, [id]: { ...inputs[id], id2: inputId } });
   };
 
   useEffect(() => {
-    const concatStr = `${outputs[inputIds['id1']] || ''}${outputs[inputIds['id2']] || ''}`;
+    const concatStr = `${outputs[inputs[id]['id1']] || ''}${outputs[inputs[id]['id2']] || ''}`;
     if (concatStr !== outputs[id]) setOutputs({ ...outputs, [id]: concatStr });
-  }, [outputs[inputIds['id1']], outputs[inputIds['id2']]]);
+  }, [outputs[inputs[id]['id1']], outputs[inputs[id]['id2']]]);
+
+  const cardProps = {
+    id,
+    startPos,
+    title: 'String Concatenate',
+  };
 
   return (
-    <Draggable defaultPosition={position} onDrag={updateXarrow} onStop={handleDragStop}>
-      <div id={id} className="box">
-        <div className="box header">String Concatenate</div>
-        <div className="box content">{outputs[id]}</div>
-        <div id={connectorOneId} className="connector input first" onClick={handleFirstInput} />
-        <div id={connectorTwoId} className="connector input second" onClick={handleSecondInput} />
-        <div className="connector output" onClick={() => takeId(id)} />
-      </div>
-    </Draggable>
-    // <CardWrapper
-    //   id={id}
-    //   defPos={defPos}
-    //   title="String Concatenate"
-    //   takeOutput={takeOutput}
-    //   giveInput={giveInput}
-    // >
-    //   <div>
-    //     <Input onChange={(e) => setStringVar(e.target.value!)} />A card that moves!
-    //   </div>
-    // </CardWrapper>
+    <CardWrapper {...cardProps}>
+      <div className="box content">{outputs[id]}</div>
+      <div id={connectorOneId} className="connector input first" onClick={handleFirstInput} />
+      <div id={connectorTwoId} className="connector input second" onClick={handleSecondInput} />
+      <div className="connector output" onClick={() => takeId(id)} />
+    </CardWrapper>
   );
 }
