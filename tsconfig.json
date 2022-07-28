@@ -16,7 +16,8 @@
     "paths": {
       "@cc-components/*": ["app/javascript/components/*"],
       "@cc-types/*": ["app/javascript/types/*"],
-      "@cc-styles/*": ["app/assets/stylesheets/*"]
+      "@cc-styles/*": ["app/assets/stylesheets/*"],
+      "@cc-util/*": ["app/javascript/utilities/*"]
     }
   },
   "include": [

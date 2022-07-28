@@ -4,7 +4,7 @@ import PositionType from '@cc-types/position';
 import '@cc-styles/card_content.scss';
 import CardWrapper from '@cc-components/CardWrapper';
 
-export default function StringConcatCard({
+export default function SubstractCard({
   id,
   startPos,
   outputs,
@@ -39,14 +39,14 @@ export default function StringConcatCard({
   };
 
   useEffect(() => {
-    const concatStr = `${outputs[inputs[id]['id1']] || ''}${outputs[inputs[id]['id2']] || ''}`;
-    if (concatStr !== outputs[id]) setOutputs({ ...outputs, [id]: concatStr });
+    const subtract = (outputs[inputs[id]['id1']] || 0) - (outputs[inputs[id]['id2']] || 0);
+    if (subtract !== outputs[id]) setOutputs({ ...outputs, [id]: subtract });
   }, [outputs[inputs[id]['id1']], outputs[inputs[id]['id2']]]);
 
   const cardProps = {
     id,
     startPos,
-    title: 'String Concatenate',
+    title: 'Subtraction',
   };
 
   return (

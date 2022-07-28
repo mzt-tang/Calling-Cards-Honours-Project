@@ -1,11 +1,11 @@
 import React from 'react';
-import { Input } from '@mui/material';
+import { TextField } from '@mui/material';
 import PositionType from '@cc-types/position';
 import CardWrapper from '@cc-components/CardWrapper';
 
 import '@cc-styles/card_content.scss';
 
-export default function StringCard({
+export default function NumberCard({
   id,
   startPos,
   outputs,
@@ -21,15 +21,21 @@ export default function StringCard({
   const cardProps = {
     id,
     startPos,
-    title: 'String',
+    title: 'Number',
   };
 
   return (
     <CardWrapper {...cardProps}>
       <div className="content">
-        <Input onChange={(e) => setOutputs({ ...outputs, [id]: e.target.value! })} />
+        <TextField
+          variant="standard"
+          type="number"
+          label="number"
+          onChange={(e) => setOutputs({ ...outputs, [id]: +e.target.value! })}
+        />
       </div>
       <div className="connector output" onClick={() => takeId(id)} />
+      {/* <div className="connector output" onClick={() => console.log(JSON.stringify(outputs))} /> */}
     </CardWrapper>
   );
 }

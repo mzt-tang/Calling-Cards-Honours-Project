@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import Button from '@mui/material/Button';
 import Xarrow, { Xwrapper } from 'react-xarrows';
-import { v4 as uuid } from 'uuid';
-import CardType, { defCardPos } from '@cc-types/card';
+import CardType from '@cc-types/card';
 import Card from '@cc-components/Card';
+import * as Create from '@cc-util/createNewCards';
 
 export default function App() {
   const [cards, setCards] = useState<CardType[]>([]);
@@ -13,23 +13,17 @@ export default function App() {
 
   const [connect, setConnect] = useState<string>(null); // Connect
 
-  const newStringCard = () => {
-    const newId = uuid();
-    const newCard: CardType = { id: newId, position: defCardPos, type: 'string' };
-    setCards((cards) => [...cards, newCard]);
-    setOutputs({ ...outputs, [newId]: '' });
-  };
-
-  const newConcatCard = () => {
-    const newId = uuid();
-    const newCard: CardType = { id: newId, position: defCardPos, type: 'stringConcat' };
-    setCards((cards) => [...cards, newCard]);
-    setInputs({ ...inputs, [newId]: { id1: '', id2: '' } });
-    setOutputs({ ...outputs, [newId]: '' });
-  };
-
   const addArrow = ({ start, end }) => {
     setArrows([...arrows, { start, end }]);
+  };
+
+  const deleteArrow = (id: string) => {
+    arrows.forEach((a) => {
+      const end = a.end;
+      const o = end.substring(0, end.length - 4);
+      setInputs({ ...inputs, [o]: { ...inputs[o], [end.substring(end.length - 3)]: '' } });
+    });
+    setArrows(arrows.filter((a) => `${a.start}-${a.end}` !== id));
   };
 
   const takeConnect = (id: string) => {
@@ -37,12 +31,11 @@ export default function App() {
   };
 
   const giveInput = (id: string) => {
-    if (connect === null) {
-      console.log('this should return...');
-      return;
-    }
+    if (connect === null || arrows.find((a) => a.end === id)) return null;
     const oId = connect;
-    if (!arrows.find((a) => a.start === oId && a.end === id)) addArrow({ start: oId, end: id }); // stops same key issues
+    if (!arrows.find((a) => a.start === oId && a.end === id)) {
+      addArrow({ start: oId, end: id });
+    }
     setConnect(null);
     return oId;
   };
@@ -83,18 +76,38 @@ export default function App() {
     );
   });
 
-  const deleteArrow = (id: string) => {
-    setArrows(arrows.filter((a) => `${a.start}-${a.end}` !== id));
-  };
-
   return (
     <div className="app">
-      <Button variant="contained" onClick={newStringCard}>
+      <Button
+        variant="contained"
+        onClick={() => Create.newStringCard(setCards, setOutputs, outputs)}
+      >
         String Card
       </Button>
 
-      <Button variant="contained" onClick={newConcatCard}>
+      <Button
+        variant="contained"
+        onClick={() => Create.newConcatCard(setCards, setInputs, setOutputs, inputs, outputs)}
+      >
         String Concat Card
+      </Button>
+      <Button
+        variant="contained"
+        onClick={() => Create.newNumberCard(setCards, setOutputs, outputs)}
+      >
+        Number Card
+      </Button>
+      <Button
+        variant="contained"
+        onClick={() => Create.newSumCard(setCards, setInputs, setOutputs, inputs, outputs)}
+      >
+        Sum Card
+      </Button>
+      <Button
+        variant="contained"
+        onClick={() => Create.newSubtractCard(setCards, setInputs, setOutputs, inputs, outputs)}
+      >
+        Subtract Card
       </Button>
       <Xwrapper>
         {listCards}
