@@ -16,4 +16,46 @@
 
 body {
     background-color: #E5E5E5;
+    margin: 0;
+}
+
+.app{
+  display: grid;
+  grid-template-columns: 10% 10px auto 10px 20%;
+  grid-template-rows: 10px auto 10px;
+  justify-items: stretch;
+  height: 100vh;
+  width: 100wh;
+}
+
+.selector{
+  display: flex;
+  grid-column-start: 1;
+  grid-column-end: 2;
+  grid-row-start: 1;
+  grid-row-end: -1;
+  flex-direction: column;
+  gap: 10px;
+  padding: 10px;
+}
+
+.workspace{
+  grid-column-start: 3;
+  grid-column-end: 4;
+  grid-row-start: 1;
+  grid-row-end: -1;
+}
+
+.console{
+  // display: flex;
+  grid-column-start: 5;
+  grid-column-end: -1;
+  grid-row-start: 1;
+  grid-row-end: -1;
+  // height: 100%;
+  // flex-direction: column;
+  // justify-self: stretch;
+  align-self: stretch;
+  color: white;
+  background-color: #181D08;
 }

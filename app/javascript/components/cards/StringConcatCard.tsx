@@ -1,10 +1,10 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useMemo } from 'react';
 import PositionType from '@cc-types/position';
 
 import '@cc-styles/card_content.scss';
 import CardWrapper from '@cc-components/CardWrapper';
 
-export default function SubstractCard({
+export default function StringConcatCard({
   id,
   startPos,
   outputs,
@@ -13,6 +13,7 @@ export default function SubstractCard({
   setInputs,
   takeId,
   giveInput,
+  toConsole,
 }: {
   id: string;
   startPos: PositionType;
@@ -22,7 +23,9 @@ export default function SubstractCard({
   setInputs: React.Dispatch<React.SetStateAction<object>>;
   takeId: (id: string) => void;
   giveInput: (id: string) => string;
+  toConsole: (log: string) => void;
 }) {
+  const log = useMemo(() => outputs[id], [outputs[id]]);
   const connectorOneId = id + '#id1';
   const connectorTwoId = id + '#id2';
 
@@ -39,14 +42,16 @@ export default function SubstractCard({
   };
 
   useEffect(() => {
-    const subtract = (outputs[inputs[id]['id1']] || 0) - (outputs[inputs[id]['id2']] || 0);
-    if (subtract !== outputs[id]) setOutputs({ ...outputs, [id]: subtract });
+    const concatStr = `${outputs[inputs[id]['id1']] || ''}${outputs[inputs[id]['id2']] || ''}`;
+    if (concatStr !== outputs[id]) setOutputs({ ...outputs, [id]: concatStr });
   }, [outputs[inputs[id]['id1']], outputs[inputs[id]['id2']]]);
 
   const cardProps = {
     id,
     startPos,
-    title: 'Subtraction',
+    title: 'String Concatenate',
+    toConsole,
+    log,
   };
 
   return (

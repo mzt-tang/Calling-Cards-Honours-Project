@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
-import Button from '@mui/material/Button';
 import Xarrow, { Xwrapper } from 'react-xarrows';
 import CardType from '@cc-types/card';
 import Card from '@cc-components/Card';
-import * as Create from '@cc-util/createNewCards';
+import CardSelector from '@cc-components/CardSelector';
+import Console from '@cc-components/Console';
 
 export default function App() {
   const [cards, setCards] = useState<CardType[]>([]);
@@ -11,7 +11,13 @@ export default function App() {
   const [inputs, setInputs] = useState<object>({});
   const [outputs, setOutputs] = useState<object>({});
 
+  const [console, setConsole] = useState<string[]>([]);
+
   const [connect, setConnect] = useState<string>(null); // Connect
+
+  const toConsole = (log: string) => {
+    setConsole((console) => [...console, log]);
+  };
 
   const addArrow = ({ start, end }) => {
     setArrows([...arrows, { start, end }]);
@@ -31,7 +37,8 @@ export default function App() {
   };
 
   const giveInput = (id: string) => {
-    if (connect === null || arrows.find((a) => a.end === id)) return null;
+    if (connect === null || arrows.find((a) => a.end === id && id.substring(id.length - 1) !== '0'))
+      return null;
     const oId = connect;
     if (!arrows.find((a) => a.start === oId && a.end === id)) {
       addArrow({ start: oId, end: id });
@@ -52,6 +59,7 @@ export default function App() {
       setOutputs,
       takeId: takeConnect,
       giveInput,
+      toConsole,
     };
     return <Card {...cardProps} />;
   });
@@ -76,43 +84,28 @@ export default function App() {
     );
   });
 
+  const clearConsole = () => {
+    setConsole([]);
+  };
+
+  const cardProps = {
+    setCards,
+    setInputs,
+    setOutputs,
+    inputs,
+    outputs,
+  };
+
   return (
     <div className="app">
-      <Button
-        variant="contained"
-        onClick={() => Create.newStringCard(setCards, setOutputs, outputs)}
-      >
-        String Card
-      </Button>
-
-      <Button
-        variant="contained"
-        onClick={() => Create.newConcatCard(setCards, setInputs, setOutputs, inputs, outputs)}
-      >
-        String Concat Card
-      </Button>
-      <Button
-        variant="contained"
-        onClick={() => Create.newNumberCard(setCards, setOutputs, outputs)}
-      >
-        Number Card
-      </Button>
-      <Button
-        variant="contained"
-        onClick={() => Create.newSumCard(setCards, setInputs, setOutputs, inputs, outputs)}
-      >
-        Sum Card
-      </Button>
-      <Button
-        variant="contained"
-        onClick={() => Create.newSubtractCard(setCards, setInputs, setOutputs, inputs, outputs)}
-      >
-        Subtract Card
-      </Button>
-      <Xwrapper>
-        {listCards}
-        {listArrows}
-      </Xwrapper>
+      <CardSelector {...cardProps} />
+      <div className="workspace">
+        <Xwrapper>
+          {listCards}
+          {listArrows}
+        </Xwrapper>
+      </div>
+      <Console console={console} />
     </div>
   );
 }

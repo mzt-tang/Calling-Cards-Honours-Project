@@ -12,7 +12,6 @@
 
   &.header {
     display: flex;
-    justify-content: center;
     align-items: center;
     background-color: #5D770D;
     color: whitesmoke;
@@ -23,4 +22,15 @@
     font-family: Helvetica;
     font-weight: bold;
   }
+}
+
+.title{
+  flex: 2;
+  justify-content: center;
+  padding-top: 5px;
+  margin-left: 10px;
+}
+
+.logger{
+  flex: 1;
 }

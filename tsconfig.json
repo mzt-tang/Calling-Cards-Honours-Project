@@ -15,6 +15,7 @@
     "baseUrl": "./",
     "paths": {
       "@cc-components/*": ["app/javascript/components/*"],
+      "@cc-cards/*": ["app/javascript/components/cards/*"],
       "@cc-types/*": ["app/javascript/types/*"],
       "@cc-styles/*": ["app/assets/stylesheets/*"],
       "@cc-util/*": ["app/javascript/utilities/*"]

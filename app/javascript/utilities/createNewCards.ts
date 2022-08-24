@@ -1,7 +1,7 @@
 import CardType, { defCardPos } from '@cc-types/card';
 import { v4 as uuid } from 'uuid';
 
-export { newNumberCard, newSumCard, newSubtractCard, newStringCard, newConcatCard };
+export { newNumberCard, newSumCard, newSubtractCard, newStringCard, newConcatCard, newInputCard };
 
 const newNumberCard = (
   setCards: React.Dispatch<React.SetStateAction<CardType[]>>,
@@ -64,5 +64,16 @@ const newConcatCard = (
   const newCard: CardType = { id: newId, position: defCardPos, type: 'stringConcat' };
   setCards((cards) => [...cards, newCard]);
   setInputs({ ...inputs, [newId]: { id1: '', id2: '' } });
+  setOutputs({ ...outputs, [newId]: '' });
+};
+
+const newInputCard = (
+  setCards: React.Dispatch<React.SetStateAction<CardType[]>>,
+  setOutputs: React.Dispatch<React.SetStateAction<object>>,
+  outputs: object
+) => {
+  const newId = uuid();
+  const newCard: CardType = { id: newId, position: defCardPos, type: 'fileRead' };
+  setCards((cards) => [...cards, newCard]);
   setOutputs({ ...outputs, [newId]: '' });
 };

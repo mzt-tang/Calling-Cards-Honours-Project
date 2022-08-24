@@ -1,9 +1,10 @@
 import React from 'react';
-import StringCard from '@cc-components/StringCard';
-import StringConcatCard from '@cc-components/StringConcatCard';
-import NumberCard from '@cc-components/NumberCard';
-import SumCard from '@cc-components/SumCard';
-import SubtractCard from '@cc-components/SubtractCard';
+import StringCard from '@cc-cards/StringCard';
+import StringConcatCard from '@cc-cards/StringConcatCard';
+import NumberCard from '@cc-cards/NumberCard';
+import SumCard from '@cc-cards/SumCard';
+import SubtractCard from '@cc-cards/SubtractCard';
+import InputCard from '@cc-cards/InputCard';
 
 const cards = {
   number: NumberCard,
@@ -11,6 +12,7 @@ const cards = {
   subtract: SubtractCard,
   string: StringCard,
   stringConcat: StringConcatCard,
+  fileRead: InputCard,
 };
 
 export default function Card(props) {

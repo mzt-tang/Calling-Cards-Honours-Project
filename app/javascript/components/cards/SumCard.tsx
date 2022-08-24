@@ -1,5 +1,4 @@
-import React, { useEffect } from 'react';
-import { TextField } from '@mui/material';
+import React, { useEffect, useMemo } from 'react';
 import PositionType from '@cc-types/position';
 import CardWrapper from '@cc-components/CardWrapper';
 
@@ -14,6 +13,7 @@ export default function SumCard({
   setInputs,
   takeId,
   giveInput,
+  toConsole,
 }: {
   id: string;
   startPos: PositionType;
@@ -23,7 +23,9 @@ export default function SumCard({
   setInputs: React.Dispatch<React.SetStateAction<object>>;
   takeId: (id: string) => void;
   giveInput: (id: string) => string;
+  toConsole: (log: string) => void;
 }) {
+  const log = useMemo(() => outputs[id].toString(), [outputs[id]]);
   const connectorId = id + '#id0';
 
   const handleInput = () => {
@@ -42,6 +44,8 @@ export default function SumCard({
     id,
     startPos,
     title: 'Summation',
+    toConsole,
+    log,
   };
 
   return (
