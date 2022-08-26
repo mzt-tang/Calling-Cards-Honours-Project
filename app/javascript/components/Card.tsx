@@ -5,6 +5,9 @@ import NumberCard from '@cc-cards/NumberCard';
 import SumCard from '@cc-cards/SumCard';
 import SubtractCard from '@cc-cards/SubtractCard';
 import InputCard from '@cc-cards/InputCard';
+import BooleanCard from '@cc-cards/BooleanCard';
+import LogicalOperatorCard from '@cc-cards/LogicalOperatorCard';
+import ComparatorOpCard from '@cc-cards/ComparatorOpCard';
 
 const cards = {
   number: NumberCard,
@@ -13,6 +16,9 @@ const cards = {
   string: StringCard,
   stringConcat: StringConcatCard,
   fileRead: InputCard,
+  boolean: BooleanCard,
+  logicalOperator: LogicalOperatorCard,
+  comparatorOperator: ComparatorOpCard,
 };
 
 export default function Card(props) {

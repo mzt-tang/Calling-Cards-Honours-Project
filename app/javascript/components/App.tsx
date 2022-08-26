@@ -16,7 +16,11 @@ export default function App() {
   const [connect, setConnect] = useState<string>(null); // Connect
 
   const toConsole = (log: string) => {
-    setConsole((console) => [...console, log]);
+    setConsole((console) => [...console, `>>\t${log}`]);
+  };
+
+  const clearConsole = () => {
+    setConsole([]);
   };
 
   const addArrow = ({ start, end }) => {
@@ -84,10 +88,6 @@ export default function App() {
     );
   });
 
-  const clearConsole = () => {
-    setConsole([]);
-  };
-
   const cardProps = {
     setCards,
     setInputs,
@@ -101,8 +101,8 @@ export default function App() {
       <CardSelector {...cardProps} />
       <div className="workspace">
         <Xwrapper>
-          {listCards}
           {listArrows}
+          {listCards}
         </Xwrapper>
       </div>
       <Console console={console} />

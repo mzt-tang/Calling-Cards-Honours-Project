@@ -8,7 +8,7 @@ export default function Console({ console }) {
         <ListItem>
           <ListItemText primary={log} />
         </ListItem>
-        <Divider />
+        <Divider light />
       </div>
     );
   });

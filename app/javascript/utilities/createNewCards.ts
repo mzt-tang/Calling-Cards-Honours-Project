@@ -1,7 +1,17 @@
 import CardType, { defCardPos } from '@cc-types/card';
 import { v4 as uuid } from 'uuid';
 
-export { newNumberCard, newSumCard, newSubtractCard, newStringCard, newConcatCard, newInputCard };
+export {
+  newNumberCard,
+  newSumCard,
+  newSubtractCard,
+  newStringCard,
+  newConcatCard,
+  newInputCard,
+  newBooleanCard,
+  newLogOperatorCard,
+  newComOperatorCard
+};
 
 const newNumberCard = (
   setCards: React.Dispatch<React.SetStateAction<CardType[]>>,
@@ -76,4 +86,43 @@ const newInputCard = (
   const newCard: CardType = { id: newId, position: defCardPos, type: 'fileRead' };
   setCards((cards) => [...cards, newCard]);
   setOutputs({ ...outputs, [newId]: '' });
+};
+
+const newBooleanCard = (
+  setCards: React.Dispatch<React.SetStateAction<CardType[]>>,
+  setOutputs: React.Dispatch<React.SetStateAction<object>>,
+  outputs: object
+) => {
+  const newId = uuid();
+  const newCard: CardType = { id: newId, position: defCardPos, type: 'boolean' };
+  setCards((cards) => [...cards, newCard]);
+  setOutputs({ ...outputs, [newId]: true });
+};
+
+const newLogOperatorCard = (
+  setCards: React.Dispatch<React.SetStateAction<CardType[]>>,
+  setInputs: React.Dispatch<React.SetStateAction<object>>,
+  setOutputs: React.Dispatch<React.SetStateAction<object>>,
+  inputs: object,
+  outputs: object
+) => {
+  const newId = uuid();
+  const newCard: CardType = { id: newId, position: defCardPos, type: 'logicalOperator' };
+  setCards((cards) => [...cards, newCard]);
+  setInputs({ ...inputs, [newId]: { id1: '', id2: '' } });
+  setOutputs({ ...outputs, [newId]: false });
+};
+
+const newComOperatorCard = (
+  setCards: React.Dispatch<React.SetStateAction<CardType[]>>,
+  setInputs: React.Dispatch<React.SetStateAction<object>>,
+  setOutputs: React.Dispatch<React.SetStateAction<object>>,
+  inputs: object,
+  outputs: object
+) => {
+  const newId = uuid();
+  const newCard: CardType = { id: newId, position: defCardPos, type: 'comparatorOperator' };
+  setCards((cards) => [...cards, newCard]);
+  setInputs({ ...inputs, [newId]: { id1: '', id2: '' } });
+  setOutputs({ ...outputs, [newId]: false });
 };

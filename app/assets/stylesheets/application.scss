@@ -47,14 +47,10 @@ body {
 }
 
 .console{
-  // display: flex;
   grid-column-start: 5;
   grid-column-end: -1;
   grid-row-start: 1;
   grid-row-end: -1;
-  // height: 100%;
-  // flex-direction: column;
-  // justify-self: stretch;
   align-self: stretch;
   color: white;
   background-color: #181D08;
