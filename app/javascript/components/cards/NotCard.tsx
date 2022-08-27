@@ -43,7 +43,7 @@ export default function NotCard({
   const cardProps = {
     id,
     startPos,
-    title: 'Not',
+    title: 'Not Operator',
     toConsole,
     log,
   };
