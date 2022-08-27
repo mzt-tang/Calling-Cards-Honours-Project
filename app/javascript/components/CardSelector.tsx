@@ -60,6 +60,9 @@ export default function CardSelector(props) {
         >
           Comparator Operator
         </Button>
+        <Button onClick={() => Create.newNotCard(setCards, setInputs, setOutputs, inputs, outputs)}>
+          Not Operator
+        </Button>
       </ButtonGroup>
     </div>
   );

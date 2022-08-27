@@ -8,6 +8,7 @@ import InputCard from '@cc-cards/InputCard';
 import BooleanCard from '@cc-cards/BooleanCard';
 import LogicalOperatorCard from '@cc-cards/LogicalOperatorCard';
 import ComparatorOpCard from '@cc-cards/ComparatorOpCard';
+import NotCard from '@cc-cards/NotCard';
 
 const cards = {
   number: NumberCard,
@@ -19,6 +20,7 @@ const cards = {
   boolean: BooleanCard,
   logicalOperator: LogicalOperatorCard,
   comparatorOperator: ComparatorOpCard,
+  notOperator: NotCard,
 };
 
 export default function Card(props) {

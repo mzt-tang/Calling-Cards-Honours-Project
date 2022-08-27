@@ -10,7 +10,8 @@ export {
   newInputCard,
   newBooleanCard,
   newLogOperatorCard,
-  newComOperatorCard
+  newComOperatorCard,
+  newNotCard,
 };
 
 const newNumberCard = (
@@ -122,6 +123,20 @@ const newComOperatorCard = (
 ) => {
   const newId = uuid();
   const newCard: CardType = { id: newId, position: defCardPos, type: 'comparatorOperator' };
+  setCards((cards) => [...cards, newCard]);
+  setInputs({ ...inputs, [newId]: { id1: '', id2: '' } });
+  setOutputs({ ...outputs, [newId]: false });
+};
+
+const newNotCard = (
+  setCards: React.Dispatch<React.SetStateAction<CardType[]>>,
+  setInputs: React.Dispatch<React.SetStateAction<object>>,
+  setOutputs: React.Dispatch<React.SetStateAction<object>>,
+  inputs: object,
+  outputs: object
+) => {
+  const newId = uuid();
+  const newCard: CardType = { id: newId, position: defCardPos, type: 'notOperator' };
   setCards((cards) => [...cards, newCard]);
   setInputs({ ...inputs, [newId]: { id1: '', id2: '' } });
   setOutputs({ ...outputs, [newId]: false });
