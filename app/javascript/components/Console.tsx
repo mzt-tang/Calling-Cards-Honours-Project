@@ -14,7 +14,7 @@ export default function Console({ console }) {
   });
   return (
     <div className="console">
-      <AppBar position="static">
+      <AppBar className="console" position="sticky">
         <Toolbar>
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
             Console

@@ -12,6 +12,7 @@ export {
   newLogOperatorCard,
   newComOperatorCard,
   newNotCard,
+  newWriteCard,
 };
 
 const newNumberCard = (
@@ -140,4 +141,15 @@ const newNotCard = (
   setCards((cards) => [...cards, newCard]);
   setInputs({ ...inputs, [newId]: { id1: '', id2: '' } });
   setOutputs({ ...outputs, [newId]: false });
+};
+
+const newWriteCard = (
+  setCards: React.Dispatch<React.SetStateAction<CardType[]>>,
+  setInputs: React.Dispatch<React.SetStateAction<object>>,
+  inputs: object,
+) => {
+  const newId = uuid();
+  const newCard: CardType = { id: newId, position: defCardPos, type: 'fileWrite' };
+  setCards((cards) => [...cards, newCard]);
+  setInputs({ ...inputs, [newId]: { id1: '' } });
 };

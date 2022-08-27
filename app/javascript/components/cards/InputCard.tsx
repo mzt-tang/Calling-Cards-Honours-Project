@@ -36,16 +36,15 @@ export default function InputCard({
       const text = e.target.result;
       setOutputs({ ...outputs, [id]: text });
     };
+    reader.readAsText(e.target.files[0]);
   };
 
   return (
     <CardWrapper {...cardProps}>
-      <div className="content">
-        <Button variant="contained" component="label">
-          Upload File
-          <input type="file" hidden onChange={handleReadFile} />
-        </Button>
-      </div>
+      <Button className="operation" variant="contained" component="label">
+        Upload File
+        <input type="file" hidden onChange={handleReadFile} />
+      </Button>
       <div className="connector output" onClick={() => takeId(id)} />
     </CardWrapper>
   );

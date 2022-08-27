@@ -9,6 +9,7 @@ import BooleanCard from '@cc-cards/BooleanCard';
 import LogicalOperatorCard from '@cc-cards/LogicalOperatorCard';
 import ComparatorOpCard from '@cc-cards/ComparatorOpCard';
 import NotCard from '@cc-cards/NotCard';
+import WriteCard from '@cc-cards/WriteCard';
 
 const cards = {
   number: NumberCard,
@@ -17,6 +18,7 @@ const cards = {
   string: StringCard,
   stringConcat: StringConcatCard,
   fileRead: InputCard,
+  fileWrite: WriteCard,
   boolean: BooleanCard,
   logicalOperator: LogicalOperatorCard,
   comparatorOperator: ComparatorOpCard,

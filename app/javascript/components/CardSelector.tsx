@@ -8,20 +8,27 @@ export default function CardSelector(props) {
 
   return (
     <div className="selector">
-      <ButtonGroup orientation="vertical">
+      <ButtonGroup variant="contained" orientation="vertical" color="primary">
         <Button onClick={() => Create.newInputCard(setCards, setOutputs, outputs)}>
           File Read Card
         </Button>
+        <Button onClick={() => Create.newWriteCard(setCards, setInputs, inputs)}>
+          File Write Card
+        </Button>
+      </ButtonGroup>
 
+      <ButtonGroup variant="contained" orientation="vertical" color="secondary">
         <Button onClick={() => Create.newStringCard(setCards, setOutputs, outputs)}>
           String Card
         </Button>
-
         <Button
           onClick={() => Create.newConcatCard(setCards, setInputs, setOutputs, inputs, outputs)}
         >
           String Concat Card
         </Button>
+      </ButtonGroup>
+
+      <ButtonGroup variant="contained" orientation="vertical" color="warning">
         <Button onClick={() => Create.newNumberCard(setCards, setOutputs, outputs)}>
           Number Card
         </Button>
@@ -43,6 +50,9 @@ export default function CardSelector(props) {
       >
         Division Card
       </Button> */}
+      </ButtonGroup>
+
+      <ButtonGroup variant="contained" orientation="vertical" color="success">
         <Button onClick={() => Create.newBooleanCard(setCards, setOutputs, outputs)}>
           Boolean
         </Button>
@@ -64,6 +74,8 @@ export default function CardSelector(props) {
           Not Operator
         </Button>
       </ButtonGroup>
+
+      <ButtonGroup variant="contained" orientation="vertical"></ButtonGroup>
     </div>
   );
 }

@@ -36,7 +36,13 @@ export default function CardWrapper({
         <div className="box header">
           <div className="inv" />
           <div className="title">{title}</div>
-          <IconButton className="logger" onClick={() => toConsole(log)}>
+          <IconButton
+            className="logger"
+            onClick={() => {
+              console.log(log);
+              toConsole(log);
+            }}
+          >
             <FeedIcon />
           </IconButton>
         </div>
