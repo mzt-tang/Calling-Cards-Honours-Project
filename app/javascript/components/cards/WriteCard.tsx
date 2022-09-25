@@ -23,11 +23,11 @@ export default function WriteCard({
   toConsole: (log: string) => void;
 }) {
   const log = 'no output';
-  const connectorId = id + '#id0';
+  const connectorId = id + '#id1';
 
   const handleInput = () => {
     const inputId = giveInput(connectorId);
-    if (inputId === null) return;
+    if (inputId === null || inputId == id) return;
     setInputs({ ...inputs, [id]: { ...inputs[id], id1: inputId } });
   };
 

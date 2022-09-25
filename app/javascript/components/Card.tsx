@@ -10,6 +10,8 @@ import LogicalOperatorCard from '@cc-cards/LogicalOperatorCard';
 import ComparatorOpCard from '@cc-cards/ComparatorOpCard';
 import NotCard from '@cc-cards/NotCard';
 import WriteCard from '@cc-cards/WriteCard';
+import StringSplitCard from '@cc-cards/StringSplitCard';
+import ForEachCard from '@cc-components/cards/ForEachCard';
 
 const cards = {
   number: NumberCard,
@@ -17,12 +19,14 @@ const cards = {
   subtract: SubtractCard,
   string: StringCard,
   stringConcat: StringConcatCard,
+  stringSplit: StringSplitCard,
   fileRead: InputCard,
   fileWrite: WriteCard,
   boolean: BooleanCard,
   logicalOperator: LogicalOperatorCard,
   comparatorOperator: ComparatorOpCard,
   notOperator: NotCard,
+  forEach: ForEachCard,
 };
 
 export default function Card(props) {

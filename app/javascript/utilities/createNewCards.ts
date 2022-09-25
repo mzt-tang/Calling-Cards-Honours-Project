@@ -13,6 +13,8 @@ export {
   newComOperatorCard,
   newNotCard,
   newWriteCard,
+  newSplitCard,
+  newForEachCard,
 };
 
 const newNumberCard = (
@@ -152,4 +154,33 @@ const newWriteCard = (
   const newCard: CardType = { id: newId, position: defCardPos, type: 'fileWrite' };
   setCards((cards) => [...cards, newCard]);
   setInputs({ ...inputs, [newId]: { id1: '' } });
+};
+
+const newSplitCard = (
+  setCards: React.Dispatch<React.SetStateAction<CardType[]>>,
+  setInputs: React.Dispatch<React.SetStateAction<object>>,
+  setOutputs: React.Dispatch<React.SetStateAction<object>>,
+  inputs: object,
+  outputs: object
+) => {
+  const newId = uuid();
+  const newCard: CardType = { id: newId, position: defCardPos, type: 'stringSplit' };
+  setCards((cards) => [...cards, newCard]);
+  setInputs({ ...inputs, [newId]: { id1: '' } });
+  setOutputs({ ...outputs, [newId]: [] });
+};
+
+const newForEachCard = (
+  setCards: React.Dispatch<React.SetStateAction<CardType[]>>,
+  setInputs: React.Dispatch<React.SetStateAction<object>>,
+  setOutputs: React.Dispatch<React.SetStateAction<object>>,
+  inputs: object,
+  outputs: object
+) => {
+  const newId = uuid();
+  const elemId = newId + '#elem';
+  const newCard: CardType = { id: newId, position: defCardPos, type: 'forEach' };
+  setCards((cards) => [...cards, newCard]);
+  setInputs({ ...inputs, [newId]: { id1: '' }, [elemId]: { id1: ''} });
+  setOutputs({ ...outputs, [newId]: [], [elemId]: '' });
 };

@@ -26,6 +26,11 @@ export default function CardSelector(props) {
         >
           String Concat Card
         </Button>
+        <Button
+          onClick={() => Create.newSplitCard(setCards, setInputs, setOutputs, inputs, outputs)}
+        >
+          String Split Card
+        </Button>
       </ButtonGroup>
 
       <ButtonGroup variant="contained" orientation="vertical" color="warning">
@@ -75,7 +80,13 @@ export default function CardSelector(props) {
         </Button>
       </ButtonGroup>
 
-      <ButtonGroup variant="contained" orientation="vertical"></ButtonGroup>
+      <ButtonGroup variant="contained" orientation="vertical" color="info">
+        <Button
+          onClick={() => Create.newForEachCard(setCards, setInputs, setOutputs, inputs, outputs)}
+        >
+          Loop
+        </Button>
+      </ButtonGroup>
     </div>
   );
 }

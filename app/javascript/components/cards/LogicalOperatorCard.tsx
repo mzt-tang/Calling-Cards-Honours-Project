@@ -21,13 +21,13 @@ export default function LogicalOperatorCard({
 
   const handleFirstInput = () => {
     const inputId = giveInput(connectorOneId);
-    if (inputId === null) return;
+    if (inputId === null || inputId == id) return;
     setInputs({ ...inputs, [id]: { ...inputs[id], id1: inputId } });
   };
 
   const handleSecondInput = () => {
     const inputId = giveInput(connectorTwoId);
-    if (inputId === null) return;
+    if (inputId === null || inputId == id) return;
     setInputs({ ...inputs, [id]: { ...inputs[id], id2: inputId } });
   };
 

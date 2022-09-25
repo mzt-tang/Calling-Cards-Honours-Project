@@ -30,7 +30,7 @@ export default function SumCard({
 
   const handleInput = () => {
     const inputId = giveInput(connectorId);
-    if (inputId === null) return;
+    if (inputId === null || inputId == id) return;
     setInputs({ ...inputs, [id]: [...inputs[id], inputId] });
   };
 
