@@ -37,6 +37,8 @@ export default function WriteCard({
     title: 'File Write',
     toConsole,
     log,
+    width: null,
+    height: null,
   };
 
   const [fileName, setFileName] = useState('untitled.txt');
@@ -59,7 +61,7 @@ export default function WriteCard({
   return (
     <CardWrapper {...cardProps}>
       <div className="content">
-        <Input onChange={(e) => setFileName(e.target.value!)} />
+        <Input onChange={(e) => setFileName(e.target.value!)} placeholder="filename" />
       </div>
       <Button
         className="additional"

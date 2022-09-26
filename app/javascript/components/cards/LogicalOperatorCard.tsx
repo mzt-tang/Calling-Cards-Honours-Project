@@ -64,6 +64,8 @@ export default function LogicalOperatorCard({
     title: 'Logical Operator',
     toConsole,
     log,
+    width: null,
+    height: null,
   };
 
   return (

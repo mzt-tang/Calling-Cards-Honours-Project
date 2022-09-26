@@ -81,9 +81,7 @@ export default function CardSelector(props) {
       </ButtonGroup>
 
       <ButtonGroup variant="contained" orientation="vertical" color="info">
-        <Button
-          onClick={() => Create.newForEachCard(setCards, setInputs, setOutputs, inputs, outputs)}
-        >
+        <Button onClick={() => Create.newMapCard(setCards, setInputs, setOutputs, inputs, outputs)}>
           Loop
         </Button>
       </ButtonGroup>

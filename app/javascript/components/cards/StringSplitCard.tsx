@@ -63,6 +63,8 @@ export default function StringSplitCard({
     title: 'Split',
     toConsole,
     log,
+    width: null,
+    height: null,
   };
 
   return (

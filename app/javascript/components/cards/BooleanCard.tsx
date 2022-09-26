@@ -10,6 +10,8 @@ export default function BooleanCard({ id, startPos, outputs, setOutputs, takeId,
     title: 'Boolean',
     toConsole,
     log,
+    width: 400,
+    height: 130,
   };
 
   const handleTrueSwitch = () => {

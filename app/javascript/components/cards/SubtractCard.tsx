@@ -52,6 +52,8 @@ export default function SubstractCard({
     title: 'Subtraction',
     toConsole,
     log,
+    width: null,
+    height: null,
   };
 
   return (

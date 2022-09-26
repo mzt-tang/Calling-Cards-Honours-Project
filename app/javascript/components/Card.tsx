@@ -11,7 +11,7 @@ import ComparatorOpCard from '@cc-cards/ComparatorOpCard';
 import NotCard from '@cc-cards/NotCard';
 import WriteCard from '@cc-cards/WriteCard';
 import StringSplitCard from '@cc-cards/StringSplitCard';
-import ForEachCard from '@cc-components/cards/ForEachCard';
+import MapCard from '@cc-components/cards/MapCard';
 
 const cards = {
   number: NumberCard,
@@ -26,7 +26,7 @@ const cards = {
   logicalOperator: LogicalOperatorCard,
   comparatorOperator: ComparatorOpCard,
   notOperator: NotCard,
-  forEach: ForEachCard,
+  map: MapCard,
 };
 
 export default function Card(props) {

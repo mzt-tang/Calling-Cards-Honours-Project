@@ -27,6 +27,8 @@ export default function InputCard({
     title: 'File Read',
     toConsole,
     log,
+    width: null,
+    height: null,
   };
 
   const handleReadFile = (e) => {

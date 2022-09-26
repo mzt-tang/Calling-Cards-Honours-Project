@@ -27,6 +27,8 @@ export default function NumberCard({
     title: 'Number',
     toConsole,
     log,
+    width: null,
+    height: null,
   };
 
   return (

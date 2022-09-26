@@ -14,13 +14,8 @@ export default function CardWrapper({
   toConsole,
   log,
   children,
-}: {
-  id: string;
-  startPos: PositionType;
-  title: string;
-  children: ReactNode;
-  toConsole: (log: string) => void;
-  log: string;
+  width,
+  height,
 }) {
   const [position, setPosition] = useState<PositionType>(startPos);
   const updateXarrow = useXarrow();
@@ -32,8 +27,12 @@ export default function CardWrapper({
 
   return (
     <Draggable defaultPosition={position} onDrag={updateXarrow} onStop={handleDragStop}>
-      <div id={id} className="box">
-        <div className="box header">
+      <div
+        id={id}
+        className="box"
+        style={{ width: width ? width : 250, height: height ? height : 150 }}
+      >
+        <div className="box header" style={{ width: width ? width : 250 }}>
           <div className="inv" />
           <div className="title">{title}</div>
           <IconButton

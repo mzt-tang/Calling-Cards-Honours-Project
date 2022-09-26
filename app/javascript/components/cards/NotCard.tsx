@@ -46,6 +46,8 @@ export default function NotCard({
     title: 'Not Operator',
     toConsole,
     log,
+    width: null,
+    height: null,
   };
 
   return (

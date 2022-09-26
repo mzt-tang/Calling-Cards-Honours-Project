@@ -46,6 +46,8 @@ export default function SumCard({
     title: 'Summation',
     toConsole,
     log,
+    width: null,
+    height: null,
   };
 
   return (

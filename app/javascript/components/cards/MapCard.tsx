@@ -5,7 +5,7 @@ import { v4 as uuid } from 'uuid';
 import '@cc-styles/card_content.scss';
 import CardWrapper from '@cc-components/CardWrapper';
 
-export default function ForEachCard({
+export default function MapCard({
   id,
   startPos,
   outputs,
@@ -41,7 +41,6 @@ export default function ForEachCard({
   useEffect(() => {
     console.log('hello 1');
     if (inputs[id].id1 === '') return;
-    console.log('TEST');
     setCurrentElem(0);
     // delete all outputs objects that use the id from the outputs[id] array and empty the array from outputs[id]
     const newOutputs = { ...outputs, [id]: [] };
@@ -55,7 +54,6 @@ export default function ForEachCard({
 
   // When connected
   useEffect(() => {
-    console.log('hello 2');
     if (inputs[eleId] === undefined || inputs[eleId].id1 === '') return;
     const newElemId = uuid();
     const newElem = outputs[inputs[eleId].id1];
@@ -74,9 +72,11 @@ export default function ForEachCard({
   const cardProps = {
     id,
     startPos,
-    title: 'For Each',
+    title: 'Map',
     toConsole,
     log,
+    width: null,
+    height: null,
   };
 
   return (

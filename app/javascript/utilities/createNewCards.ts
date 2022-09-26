@@ -14,7 +14,7 @@ export {
   newNotCard,
   newWriteCard,
   newSplitCard,
-  newForEachCard,
+  newMapCard as newMapCard,
 };
 
 const newNumberCard = (
@@ -170,7 +170,7 @@ const newSplitCard = (
   setOutputs({ ...outputs, [newId]: [] });
 };
 
-const newForEachCard = (
+const newMapCard = (
   setCards: React.Dispatch<React.SetStateAction<CardType[]>>,
   setInputs: React.Dispatch<React.SetStateAction<object>>,
   setOutputs: React.Dispatch<React.SetStateAction<object>>,
@@ -179,7 +179,7 @@ const newForEachCard = (
 ) => {
   const newId = uuid();
   const elemId = newId + '#elem';
-  const newCard: CardType = { id: newId, position: defCardPos, type: 'forEach' };
+  const newCard: CardType = { id: newId, position: defCardPos, type: 'map' };
   setCards((cards) => [...cards, newCard]);
   setInputs({ ...inputs, [newId]: { id1: '' }, [elemId]: { id1: ''} });
   setOutputs({ ...outputs, [newId]: [], [elemId]: '' });

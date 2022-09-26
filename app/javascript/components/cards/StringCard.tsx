@@ -27,6 +27,8 @@ export default function StringCard({
     title: 'String',
     toConsole,
     log,
+    width: null,
+    height: null,
   };
 
   return (
