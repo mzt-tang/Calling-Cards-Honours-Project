@@ -60,7 +60,7 @@ export default function WriteCard({
 
   return (
     <CardWrapper {...cardProps}>
-      <div className="content">
+      <div className="content" style={{ height: 50 }}>
         <Input onChange={(e) => setFileName(e.target.value!)} placeholder="filename" />
       </div>
       <Button

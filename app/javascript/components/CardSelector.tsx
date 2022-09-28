@@ -9,7 +9,7 @@ export default function CardSelector(props) {
   return (
     <div className="selector">
       <ButtonGroup variant="contained" orientation="vertical" color="primary">
-        <Button onClick={() => Create.newInputCard(setCards, setOutputs, outputs)}>
+        <Button onClick={() => Create.newFileReadCard(setCards, setOutputs, outputs)}>
           File Read Card
         </Button>
         <Button onClick={() => Create.newWriteCard(setCards, setInputs, inputs)}>
@@ -20,6 +20,11 @@ export default function CardSelector(props) {
       <ButtonGroup variant="contained" orientation="vertical" color="secondary">
         <Button onClick={() => Create.newStringCard(setCards, setOutputs, outputs)}>
           String Card
+        </Button>
+        <Button
+          onClick={() => Create.newStrLengthCard(setCards, setInputs, setOutputs, inputs, outputs)}
+        >
+          String Length Card
         </Button>
         <Button
           onClick={() => Create.newConcatCard(setCards, setInputs, setOutputs, inputs, outputs)}
@@ -82,7 +87,12 @@ export default function CardSelector(props) {
 
       <ButtonGroup variant="contained" orientation="vertical" color="info">
         <Button onClick={() => Create.newMapCard(setCards, setInputs, setOutputs, inputs, outputs)}>
-          Loop
+          Map
+        </Button>
+        <Button
+          onClick={() => Create.newFilterCard(setCards, setInputs, setOutputs, inputs, outputs)}
+        >
+          Filter
         </Button>
       </ButtonGroup>
     </div>

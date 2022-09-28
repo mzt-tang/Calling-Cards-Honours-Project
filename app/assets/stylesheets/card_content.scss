@@ -9,10 +9,16 @@
 
   background-color: #8B918A;
   color: whitesmoke;
+  padding: 5px;
+  margin: 0;
+  margin-top: 10px;
   height: 80px;
   width: 200px;
-  padding: 0;
-  margin: 0;
+
+  &.small {
+    height: 30px;
+    width: 100px;
+  }
 }
 
 .additional{
@@ -47,7 +53,6 @@
     
     &.center {
       transform: translate(-50%, 0%);
-      
     }
 
   }
@@ -56,19 +61,18 @@
     left: 50%;
 
     &.out {
-      background-color: blue;
-      transform: translate(-250%, -50%);
+      transform: translate(-650%, -50%);
     }
 
     &.in {
-      transform: translate(150%, -50%);
+      transform: translate(550%, -50%);
     }
   }
 
   &.output {
     top: 50%;
     left: 100%;
-    transform: translate(-50%, -50%);
+    transform: translate(-50%, 0%);
   }
 }
 

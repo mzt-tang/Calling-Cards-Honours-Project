@@ -15,7 +15,8 @@ export default function ComparatorOpCard({
   giveInput,
   toConsole,
 }) {
-  const log = useMemo(() => outputs[id].toString(), [outputs[id]]);
+  // const log = useMemo(() => outputs[id].toString(), [outputs[id]]);
+  const log = id;
   const connectorOneId = id + '#id1';
   const connectorTwoId = id + '#id2';
 
@@ -45,6 +46,10 @@ export default function ComparatorOpCard({
 
     switch (operator) {
       case '==': {
+        console.log('before');
+        console.log(outputs[inputs[id].id1]);
+        console.log(outputs[inputs[id].id2]);
+        console.log('after');
         setOutputs({ ...outputs, [id]: outputs[inputs[id].id1] == outputs[inputs[id].id2] });
         break;
       }
@@ -68,7 +73,7 @@ export default function ComparatorOpCard({
         setOutputs({ ...outputs, [id]: false });
       }
     }
-  }, [operator, outputs[inputs[id].id1], outputs[inputs[id].id2]]);
+  }, [operator, outputs[inputs[id].id1], outputs[inputs[id].id2], inputs[id].forceRender]);
 
   const cardProps = {
     id,

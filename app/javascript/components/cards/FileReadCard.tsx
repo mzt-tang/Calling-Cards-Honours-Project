@@ -5,7 +5,7 @@ import CardWrapper from '@cc-components/CardWrapper';
 
 import '@cc-styles/card_content.scss';
 
-export default function InputCard({
+export default function FileReadCard({
   id,
   startPos,
   outputs,
@@ -27,8 +27,8 @@ export default function InputCard({
     title: 'File Read',
     toConsole,
     log,
-    width: null,
-    height: null,
+    width: 200,
+    height: 100,
   };
 
   const handleReadFile = (e) => {
@@ -43,7 +43,7 @@ export default function InputCard({
 
   return (
     <CardWrapper {...cardProps}>
-      <Button className="operation" variant="contained" component="label">
+      <Button className="operation" variant="contained" component="label" sx={{ mt: 1 }}>
         Upload File
         <input type="file" hidden onChange={handleReadFile} />
       </Button>

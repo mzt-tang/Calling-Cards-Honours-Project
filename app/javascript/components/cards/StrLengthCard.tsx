@@ -1,0 +1,47 @@
+import React, { useMemo, useEffect } from 'react';
+import CardWrapper from '@cc-components/CardWrapper';
+
+export default function StrLengthCard({
+  id,
+  startPos,
+  outputs,
+  setOutputs,
+  inputs,
+  setInputs,
+  takeId,
+  giveInput,
+  toConsole,
+}) {
+  const log = useMemo(() => outputs[id].toString(), [outputs[id]]);
+  const connectorId = id + '#id1';
+
+  const handleInput = () => {
+    const inputId = giveInput(connectorId);
+    if (inputId === null || inputId == id) return;
+    setInputs({ ...inputs, [id]: { ...inputs[id], id1: inputId } });
+  };
+
+  useEffect(() => {
+    if (inputs[id].id1 === '') return;
+    const strLength = outputs[inputs[id].id1].length;
+    if (strLength !== outputs[id]) setOutputs({ ...outputs, [id]: strLength });
+  }, [outputs[inputs[id]['id1']]]);
+
+  const cardProps = {
+    id,
+    startPos,
+    title: 'String Length',
+    toConsole,
+    log,
+    width: 200,
+    height: 100,
+  };
+
+  return (
+    <CardWrapper {...cardProps}>
+      <div className="content small">{outputs[id]}</div>
+      <div id={connectorId} className="connector input center" onClick={handleInput} />
+      <div className="connector output" onClick={() => takeId(id)} />
+    </CardWrapper>
+  );
+}

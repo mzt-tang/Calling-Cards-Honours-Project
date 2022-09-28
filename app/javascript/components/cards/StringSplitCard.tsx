@@ -45,7 +45,6 @@ export default function StringSplitCard({
     )
       return;
     const stringSplit = outputs[inputs[id].id1].split(split.substring(1, split.length - 1));
-    //for each element in stringSplit add a new output to outputs using a new uuid and add that uuid to an array
     const newOutputs = { ...outputs };
     const newOutputIds = [];
     stringSplit.forEach((element) => {
