@@ -22,7 +22,6 @@ export default function NumberCard({
 }) {
   const log = useMemo(() => outputs[id].toString(), [outputs[id]]);
   const cardProps = {
-    id,
     startPos,
     title: 'Number',
     toConsole,
@@ -41,7 +40,7 @@ export default function NumberCard({
           onChange={(e) => setOutputs({ ...outputs, [id]: +e.target.value! })}
         />
       </div>
-      <div className="connector output" onClick={() => takeId(id)} />
+      <div id={id} className="connector output" onClick={() => takeId(id)} />
     </CardWrapper>
   );
 }

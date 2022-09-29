@@ -22,7 +22,6 @@ export default function StringCard({
 }) {
   const log = useMemo(() => outputs[id], [outputs[id]]);
   const cardProps = {
-    id,
     startPos,
     title: 'String',
     toConsole,
@@ -36,7 +35,7 @@ export default function StringCard({
       <div className="content">
         <Input onChange={(e) => setOutputs({ ...outputs, [id]: e.target.value! })} />
       </div>
-      <div className="connector output" onClick={() => takeId(id)} />
+      <div id={id} className="connector output" onClick={() => takeId(id)} />
     </CardWrapper>
   );
 }

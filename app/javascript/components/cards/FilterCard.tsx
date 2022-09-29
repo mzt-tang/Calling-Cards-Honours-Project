@@ -89,7 +89,6 @@ export default function FilterCard({
   }, [outputs[inputs[eleId].id1]]);
 
   const cardProps = {
-    id,
     startPos,
     title: 'Filter',
     toConsole,
@@ -109,7 +108,7 @@ export default function FilterCard({
         }}
       />
       <div id={eleConnectorId} className="connector element in" onClick={handleLoopInput} />
-      <div className="connector output" onClick={() => takeId(id)} />
+      <div id={id} className="connector output" onClick={() => takeId(id)} />
     </CardWrapper>
   );
 }

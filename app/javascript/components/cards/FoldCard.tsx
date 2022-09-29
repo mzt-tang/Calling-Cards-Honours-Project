@@ -1,11 +1,10 @@
 import React, { useEffect, useMemo, useState } from 'react';
-import PositionType from '@cc-types/position';
 import { v4 as uuid } from 'uuid';
 
 import '@cc-styles/card_content.scss';
 import CardWrapper from '@cc-components/CardWrapper';
 
-export default function MapCard({
+export default function FoldCard({
   id,
   startPos,
   outputs,
@@ -36,6 +35,7 @@ export default function MapCard({
     setInputs({ ...inputs, [id]: { ...inputs[id], id1: inputId } });
   };
 
+  // When first connecting to an input. Do a reset essentially
   useEffect(() => {
     if (inputs[id].id1 === '') return;
     setCurrentElem(0);
@@ -47,24 +47,42 @@ export default function MapCard({
 
     newOutputs[eleId] = outputs[outputs[inputs[id].id1][0]];
     setOutputs(newOutputs);
-  }, [outputs[inputs[id]['id1']]]);
+  }, [outputs[inputs[id].id1]]);
 
-  // When connected
+  // When first connected
   useEffect(() => {
     if (inputs[eleId] === undefined || inputs[eleId].id1 === '') return;
-    // if (inputs[eleId] === undefined || inputs[eleId].id1 === '') {
-    //   setOutputs({ ...outputs, [id]: [], [eleId]: '' });
-    //   setCurrentElem(0);
-    //   return;
-    // }
-    const newElemId = uuid();
-    const newElem = outputs[inputs[eleId].id1];
-    const newOutputs = { ...outputs, [newElemId]: newElem };
-    newOutputs[id] = [...outputs[id], newElemId];
+
+    // force a render of the element's input
+    if (outputs[inputs[eleId].id1] === null) {
+      setInputs({
+        ...inputs,
+        [inputs[eleId].id1]: {
+          ...inputs[inputs[eleId].id1],
+          forceRender: !inputs[inputs[eleId].id1].forceRender,
+        },
+      });
+      return;
+    }
+
+    const filterBool = outputs[inputs[eleId].id1];
+    if (typeof filterBool !== 'boolean') return;
+    const newOutputs = { ...outputs };
+    console.log('output element', outputs[outputs[inputs[id].id1][currentElem]]);
+    console.log('filterBool', filterBool);
+
+    if (filterBool) {
+      const newElemId = uuid();
+      const filteredElement = outputs[outputs[inputs[id].id1][currentElem]];
+      newOutputs[newElemId] = filteredElement;
+      newOutputs[id] = [...outputs[id], newElemId];
+    }
 
     if (currentElem < outputs[inputs[id].id1].length - 1) {
       newOutputs[eleId] = outputs[outputs[inputs[id].id1][currentElem + 1]];
+      newOutputs[inputs[eleId].id1] = null; // force the element's output to be null
       setCurrentElem(currentElem + 1);
+      console.log('new element', newOutputs[eleId]);
     }
 
     setOutputs(newOutputs);
@@ -72,7 +90,7 @@ export default function MapCard({
 
   const cardProps = {
     startPos,
-    title: 'Map',
+    title: 'Filter',
     toConsole,
     log,
     width: 400,

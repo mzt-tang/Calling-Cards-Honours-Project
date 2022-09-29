@@ -47,7 +47,6 @@ export default function SubstractCard({
   }, [outputs[inputs[id]['id1']], outputs[inputs[id]['id2']]]);
 
   const cardProps = {
-    id,
     startPos,
     title: 'Subtraction',
     toConsole,
@@ -61,7 +60,7 @@ export default function SubstractCard({
       <div className="content">{outputs[id]}</div>
       <div id={connectorOneId} className="connector input first" onClick={handleFirstInput} />
       <div id={connectorTwoId} className="connector input second" onClick={handleSecondInput} />
-      <div className="connector output" onClick={() => takeId(id)} />
+      <div id={id} className="connector output" onClick={() => takeId(id)} />
     </CardWrapper>
   );
 }

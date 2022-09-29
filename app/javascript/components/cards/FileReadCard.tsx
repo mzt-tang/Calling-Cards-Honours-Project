@@ -22,7 +22,6 @@ export default function FileReadCard({
 }) {
   const log = useMemo(() => outputs[id], [outputs[id]]);
   const cardProps = {
-    id,
     startPos,
     title: 'File Read',
     toConsole,
@@ -47,7 +46,7 @@ export default function FileReadCard({
         Upload File
         <input type="file" hidden onChange={handleReadFile} />
       </Button>
-      <div className="connector output" onClick={() => takeId(id)} />
+      <div id={id} className="connector output" onClick={() => takeId(id)} />
     </CardWrapper>
   );
 }

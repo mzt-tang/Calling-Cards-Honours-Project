@@ -41,7 +41,6 @@ export default function NotCard({
   }, [outputs[inputs[id].id1]]);
 
   const cardProps = {
-    id,
     startPos,
     title: 'Not Operator',
     toConsole,
@@ -56,7 +55,7 @@ export default function NotCard({
         {outputs[id].toString()}
       </Button>
       <div id={connectorId} className="connector input center" onClick={handleInput} />
-      <div className="connector output" onClick={() => takeId(id)} />
+      <div id={id} className="connector output" onClick={() => takeId(id)} />
     </CardWrapper>
   );
 }

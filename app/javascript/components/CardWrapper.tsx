@@ -7,16 +7,7 @@ import { useXarrow } from 'react-xarrows';
 
 import '@cc-styles/card_wrapper.scss';
 
-export default function CardWrapper({
-  id,
-  startPos,
-  title,
-  toConsole,
-  log,
-  children,
-  width,
-  height,
-}) {
+export default function CardWrapper({ startPos, title, toConsole, log, children, width, height }) {
   const [position, setPosition] = useState<PositionType>(startPos);
   const updateXarrow = useXarrow();
 
@@ -27,11 +18,7 @@ export default function CardWrapper({
 
   return (
     <Draggable defaultPosition={position} onDrag={updateXarrow} onStop={handleDragStop}>
-      <div
-        id={id}
-        className="box"
-        style={{ width: width ? width : 250, height: height ? height : 150 }}
-      >
+      <div className="box" style={{ width: width ? width : 250, height: height ? height : 150 }}>
         <div className="box header" style={{ width: width ? width : 250 }}>
           <div className="inv" />
           <div className="title">{title}</div>

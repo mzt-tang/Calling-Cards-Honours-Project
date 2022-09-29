@@ -5,7 +5,6 @@ import CardWrapper from '@cc-components/CardWrapper';
 export default function BooleanCard({ id, startPos, outputs, setOutputs, takeId, toConsole }) {
   const log = useMemo(() => outputs[id].toString(), [outputs[id]]);
   const cardProps = {
-    id,
     startPos,
     title: 'Boolean',
     toConsole,
@@ -32,7 +31,7 @@ export default function BooleanCard({ id, startPos, outputs, setOutputs, takeId,
           False
         </Button>
       </ButtonGroup>
-      <div className="connector output" onClick={() => takeId(id)} />
+      <div id={id} className="connector output" onClick={() => takeId(id)} />
     </CardWrapper>
   );
 }

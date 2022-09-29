@@ -76,7 +76,6 @@ export default function ComparatorOpCard({
   }, [operator, outputs[inputs[id].id1], outputs[inputs[id].id2], inputs[id].forceRender]);
 
   const cardProps = {
-    id,
     startPos,
     title: 'Comparator Operator',
     toConsole,
@@ -105,7 +104,7 @@ export default function ComparatorOpCard({
       </FormControl>
       <div id={connectorOneId} className="connector input first" onClick={handleFirstInput} />
       <div id={connectorTwoId} className="connector input second" onClick={handleSecondInput} />
-      <div className="connector output" onClick={() => takeId(id)} />
+      <div id={id} className="connector output" onClick={() => takeId(id)} />
     </CardWrapper>
   );
 }

@@ -41,7 +41,6 @@ export default function SumCard({
   }, [inputs[id].map((i: string) => outputs[i])]);
 
   const cardProps = {
-    id,
     startPos,
     title: 'Summation',
     toConsole,
@@ -54,7 +53,7 @@ export default function SumCard({
     <CardWrapper {...cardProps}>
       <div className="content">{outputs[id]}</div>
       <div id={connectorId} className="connector input center" onClick={handleInput} />
-      <div className="connector output" onClick={() => takeId(id)} />
+      <div id={id} className="connector output" onClick={() => takeId(id)} />
     </CardWrapper>
   );
 }

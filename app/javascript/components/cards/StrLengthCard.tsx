@@ -28,7 +28,6 @@ export default function StrLengthCard({
   }, [outputs[inputs[id]['id1']]]);
 
   const cardProps = {
-    id,
     startPos,
     title: 'String Length',
     toConsole,
@@ -41,7 +40,7 @@ export default function StrLengthCard({
     <CardWrapper {...cardProps}>
       <div className="content small">{outputs[id]}</div>
       <div id={connectorId} className="connector input center" onClick={handleInput} />
-      <div className="connector output" onClick={() => takeId(id)} />
+      <div id={id} className="connector output" onClick={() => takeId(id)} />
     </CardWrapper>
   );
 }

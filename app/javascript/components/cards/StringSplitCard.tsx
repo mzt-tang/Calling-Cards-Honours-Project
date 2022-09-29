@@ -57,7 +57,6 @@ export default function StringSplitCard({
   }, [outputs[inputs[id].id1], split]);
 
   const cardProps = {
-    id,
     startPos,
     title: 'Split',
     toConsole,
@@ -72,7 +71,7 @@ export default function StringSplitCard({
         <Input placeholder="' '" onChange={(e) => setSplit(e.target.value!)} />
       </div>
       <div id={connectorId} className="connector input center" onClick={handleInput} />
-      <div className="connector output" onClick={() => takeId(id)} />
+      <div id={id} className="connector output" onClick={() => takeId(id)} />
     </CardWrapper>
   );
 }
