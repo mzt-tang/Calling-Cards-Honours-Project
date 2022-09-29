@@ -61,13 +61,13 @@ export default function StringSplitCard({
     title: 'Split',
     toConsole,
     log,
-    width: null,
-    height: null,
+    width: 200,
+    height: 100,
   };
 
   return (
     <CardWrapper {...cardProps}>
-      <div className="content">
+      <div className="content small">
         <Input placeholder="' '" onChange={(e) => setSplit(e.target.value!)} />
       </div>
       <div id={connectorId} className="connector input center" onClick={handleInput} />

@@ -26,20 +26,25 @@ export default function NumberCard({
     title: 'Number',
     toConsole,
     log,
-    width: null,
-    height: null,
+    width: 200,
+    height: 100,
   };
 
   return (
     <CardWrapper {...cardProps}>
-      <div className="content">
-        <TextField
+      {/* <div className="content small"> */}
+      {/* <TextField
           variant="standard"
           type="number"
           label="number"
           onChange={(e) => setOutputs({ ...outputs, [id]: +e.target.value! })}
-        />
-      </div>
+        /> */}
+      <input
+        className="content small"
+        type="number"
+        onChange={(e) => setOutputs({ ...outputs, [id]: +e.target.value! })}
+      />
+      {/* </div> */}
       <div id={id} className="connector output" onClick={() => takeId(id)} />
     </CardWrapper>
   );

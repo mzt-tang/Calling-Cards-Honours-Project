@@ -4,7 +4,6 @@ import CardType from '@cc-types/card';
 import Card from '@cc-components/Card';
 import CardSelector from '@cc-components/CardSelector';
 import Console from '@cc-components/Console';
-import zIndex from '@mui/material/styles/zIndex';
 
 export default function App() {
   const [cards, setCards] = useState<CardType[]>([]);
@@ -78,13 +77,13 @@ export default function App() {
         startAnchor="right"
         endAnchor="left"
         color="coral"
-        path="grid"
+        path="smooth"
+        zIndex={1}
         passProps={{
           id: `${a.start}-${a.end}`,
           onClick: (e) => {
             deleteArrow(e.currentTarget.id);
           },
-          className: 'arrow',
         }}
       />
     );
