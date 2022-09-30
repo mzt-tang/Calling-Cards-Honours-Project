@@ -41,17 +41,21 @@ export default function FilterCard({
     setInputs({ ...inputs, [id]: { ...inputs[id], id1: inputId } });
   };
 
-  // When first connecting to an input. Do a reset essentially
+  // When the input array changes. Do a reset essentially.
   useEffect(() => {
     if (inputs[id].id1 === '') return;
     setCurrentElem(0);
     // delete all outputs objects that use the id from the outputs[id] array and empty the array from outputs[id]
-    const newOutputs = { ...outputs, [id]: [] };
+    const newOutputs = {
+      ...outputs,
+      [id]: [],
+      [inputs[eleId].id1]: null,
+      [eleId]: outputs[outputs[inputs[id].id1][0]],
+    };
     outputs[id].forEach((element) => {
       delete newOutputs[element];
     });
 
-    newOutputs[eleId] = outputs[outputs[inputs[id].id1][0]];
     setOutputs(newOutputs);
   }, [outputs[inputs[id].id1], inputs[id].forceRender]);
 

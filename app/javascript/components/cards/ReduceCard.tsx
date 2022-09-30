@@ -43,7 +43,6 @@ export default function ReduceCard({
 
     setOutputs(newOutputs);
     setInputs({ ...inputs, [id]: { ...inputs[id], start: inputId } });
-    // perhaps an inputs start sum should be created...? Todo: This should be done for loop resets beyond this method
   };
 
   const handleLoopInput = () => {
@@ -58,7 +57,7 @@ export default function ReduceCard({
     setInputs({ ...inputs, [id]: { ...inputs[id], id1: inputId } });
   };
 
-  // When first connecting to an input. Do a reset essentially.
+  // When the input array changes. Do a reset essentially.
   useEffect(() => {
     if (inputs[id].id1 === '') return;
 
@@ -137,7 +136,7 @@ export default function ReduceCard({
         id={sumId}
         style={{ transform: 'translate(-140px, -50%)' }}
         className="connector element minor"
-        onClick={() => takeId(sumId)} // A 'delayed' output sum to be updated the same time as the element.
+        onClick={() => takeId(sumId)} // A 'limit' output sum to be stopped updating when the element reaches max.
       />
       <div
         id={eleId}

@@ -38,9 +38,12 @@ export default function NotCard({
     setInputs({ ...inputs, [id]: { ...inputs[id], id1: inputId } });
   };
 
+  // the not operator is bugged when used in loops
   useEffect(() => {
     if (inputs[id].id1 === '') return;
-    setOutputs({ ...outputs, [id]: !outputs[inputs[id].id1] });
+    const inputBool = outputs[inputs[id].id1];
+    if (typeof inputBool !== 'boolean') setOutputs({ ...outputs, [id]: false });
+    else setOutputs({ ...outputs, [id]: !outputs[inputs[id].id1] });
   }, [outputs[inputs[id].id1], inputs[id].forceRender]);
 
   const cardProps = {
@@ -55,7 +58,7 @@ export default function NotCard({
   return (
     <CardWrapper {...cardProps}>
       <Button className="operation" variant="contained" color="success">
-        {outputs[id].toString()}
+        {outputs[id]?.toString() || 'false'}
       </Button>
       <div id={connectorId} className="connector input center" onClick={handleInput} />
       <div id={id} className="connector output" onClick={() => takeId(id)} />

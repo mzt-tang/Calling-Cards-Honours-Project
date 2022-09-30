@@ -26,7 +26,7 @@ export default function StrLengthCard({
 
   useEffect(() => {
     if (inputs[id].id1 === '') return;
-    const strLength = outputs[inputs[id].id1].length;
+    const strLength = (outputs[inputs[id].id1] || '').length;
     if (strLength !== outputs[id]) setOutputs({ ...outputs, [id]: strLength });
   }, [outputs[inputs[id]['id1']], inputs[id].forceRender]);
 
