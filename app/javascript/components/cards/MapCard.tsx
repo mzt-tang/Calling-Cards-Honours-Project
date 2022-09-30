@@ -46,7 +46,12 @@ export default function MapCard({
     if (inputs[id].id1 === '') return;
     setCurrentElem(0);
     // delete all outputs objects that use the id from the outputs[id] array and empty the array from outputs[id]
-    const newOutputs = { ...outputs, [id]: [] };
+    const newOutputs = {
+      ...outputs,
+      [id]: [],
+      [inputs[eleId].id1]: null,
+      [eleId]: outputs[outputs[inputs[id].id1][0]],
+    };
     outputs[id].forEach((element) => {
       delete newOutputs[element];
     });
