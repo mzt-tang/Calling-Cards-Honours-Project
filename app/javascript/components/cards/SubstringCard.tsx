@@ -64,15 +64,15 @@ export default function SubstringCard({
     <CardWrapper {...cardProps}>
       <div className="content">{outputs[id]}</div>
       <div
-        style={{ backgroundColor: 'yellow', transform: 'translate(-50%, -30px)' }}
+        style={{ transform: 'translate(-50%, -30px)' }}
         id={startConId}
-        className="connector input"
+        className="connector input minor"
         onClick={handleStartInput}
       />
       <div
-        style={{ backgroundColor: 'yellow', transform: 'translate(-50%, -10px)' }}
+        style={{ transform: 'translate(-50%, -10px)' }}
         id={endConId}
-        className="connector input"
+        className="connector input minor"
         onClick={handleEndInput}
       />
       <div

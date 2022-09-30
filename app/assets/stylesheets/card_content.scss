@@ -36,8 +36,8 @@
   height: 15px;
   border-radius: 50%;
 
-  &:hover {
-    background-color: bisque;
+  &.minor {
+    background-color: yellow;
   }
 
   &.input {
@@ -75,6 +75,10 @@
     top: 50%;
     left: 100%;
     transform: translate(-50%, 0%);
+  }
+
+  &:hover {
+    background-color: bisque;
   }
 }
 

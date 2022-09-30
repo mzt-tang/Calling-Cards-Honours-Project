@@ -58,7 +58,7 @@ export default function ReduceCard({
     setInputs({ ...inputs, [id]: { ...inputs[id], id1: inputId } });
   };
 
-  // When first connecting to an input. Do a reset essentially. Todo: the reset needs to be fixed.
+  // When first connecting to an input. Do a reset essentially.
   useEffect(() => {
     if (inputs[id].id1 === '') return;
 
@@ -80,7 +80,7 @@ export default function ReduceCard({
     }
 
     setOutputs(newOutputs);
-  }, [outputs[inputs[id].id1], inputs[id].forceRender]);
+  }, [outputs[inputs[id].id1], outputs[inputs[id].start], inputs[id].forceRender]);
 
   // When first connected
   useEffect(() => {
@@ -129,14 +129,14 @@ export default function ReduceCard({
       <div id={connectorId} className="connector input center" onClick={handleActualInput} />
       <div
         id={startConnectorId}
-        style={{ backgroundColor: 'yellow', transform: 'translate(-180px, -50%)' }}
-        className="connector element"
+        style={{ transform: 'translate(-180px, -50%)' }}
+        className="connector element minor"
         onClick={handleStartSumInput}
       />
       <div
         id={sumId}
-        style={{ backgroundColor: 'yellow', transform: 'translate(-140px, -50%)' }}
-        className="connector element"
+        style={{ transform: 'translate(-140px, -50%)' }}
+        className="connector element minor"
         onClick={() => takeId(sumId)} // A 'delayed' output sum to be updated the same time as the element.
       />
       <div

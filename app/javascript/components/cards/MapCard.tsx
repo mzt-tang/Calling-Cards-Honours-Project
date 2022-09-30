@@ -58,11 +58,6 @@ export default function MapCard({
   // When connected
   useEffect(() => {
     if (inputs[eleId] === undefined || inputs[eleId].id1 === '') return;
-    // if (inputs[eleId] === undefined || inputs[eleId].id1 === '') {
-    //   setOutputs({ ...outputs, [id]: [], [eleId]: '' });
-    //   setCurrentElem(0);
-    //   return;
-    // }
 
     // force a render of the element's input
     if (outputs[inputs[eleId].id1] === null) {
