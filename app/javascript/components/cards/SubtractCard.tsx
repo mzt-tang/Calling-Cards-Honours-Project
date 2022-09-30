@@ -47,7 +47,7 @@ export default function SubstractCard({
   useEffect(() => {
     const subtract = (outputs[inputs[id]['id1']] || 0) - (outputs[inputs[id]['id2']] || 0);
     if (subtract !== outputs[id]) setOutputs({ ...outputs, [id]: subtract });
-  }, [outputs[inputs[id]['id1']], outputs[inputs[id]['id2']]]);
+  }, [outputs[inputs[id]['id1']], outputs[inputs[id]['id2']], inputs[id].forceRender]);
 
   const cardProps = {
     startPos,

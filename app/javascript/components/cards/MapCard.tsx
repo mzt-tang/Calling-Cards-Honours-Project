@@ -53,7 +53,7 @@ export default function MapCard({
 
     newOutputs[eleId] = outputs[outputs[inputs[id].id1][0]];
     setOutputs(newOutputs);
-  }, [outputs[inputs[id]['id1']]]);
+  }, [outputs[inputs[id]['id1']], inputs[id].forceRender]);
 
   // When connected
   useEffect(() => {
@@ -88,7 +88,7 @@ export default function MapCard({
     }
 
     setOutputs(newOutputs);
-  }, [outputs[inputs[eleId].id1]]);
+  }, [outputs[inputs[eleId].id1], inputs[eleId].forceRender]);
 
   const cardProps = {
     startPos,

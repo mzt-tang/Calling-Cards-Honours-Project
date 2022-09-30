@@ -73,7 +73,7 @@ export default function ReduceCard({
 
   //   newOutputs[eleId] = outputs[outputs[inputs[id].id1][0]];
   //   setOutputs(newOutputs);
-  // }, [outputs[inputs[id].id1]]);
+  // }, [outputs[inputs[id].id1], inputs[id].forceRender]);
 
   // When first connected
   useEffect(() => {
@@ -102,7 +102,7 @@ export default function ReduceCard({
     }
 
     setOutputs(newOutputs);
-  }, [outputs[inputs[eleId].id1]]);
+  }, [outputs[inputs[eleId].id1], inputs[eleId].forceRender]);
 
   const cardProps = {
     startPos,

@@ -47,7 +47,7 @@ export default function StringConcatCard({
   useEffect(() => {
     const concatStr = `${outputs[inputs[id]['id1']] || ''}${outputs[inputs[id]['id2']] || ''}`;
     if (concatStr !== outputs[id]) setOutputs({ ...outputs, [id]: concatStr });
-  }, [outputs[inputs[id]['id1']], outputs[inputs[id]['id2']]]);
+  }, [outputs[inputs[id]['id1']], outputs[inputs[id]['id2']], inputs[id].forceRender]);
 
   const cardProps = {
     startPos,

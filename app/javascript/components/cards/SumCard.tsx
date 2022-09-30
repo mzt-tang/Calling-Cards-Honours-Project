@@ -41,7 +41,7 @@ export default function SumCard({
     let total: number = 0;
     inputs[id].id0.forEach((i: string) => (total += outputs[i]));
     if (total !== outputs[id]) setOutputs({ ...outputs, [id]: total });
-  }, [inputs[id].id0.map((i: string) => outputs[i])]);
+  }, [inputs[id].id0.map((i: string) => outputs[i]), inputs[id].forceRender]);
 
   const cardProps = {
     startPos,

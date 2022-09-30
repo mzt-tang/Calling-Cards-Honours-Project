@@ -41,7 +41,7 @@ export default function NotCard({
   useEffect(() => {
     if (inputs[id].id1 === '') return;
     setOutputs({ ...outputs, [id]: !outputs[inputs[id].id1] });
-  }, [outputs[inputs[id].id1]]);
+  }, [outputs[inputs[id].id1], inputs[id].forceRender]);
 
   const cardProps = {
     startPos,

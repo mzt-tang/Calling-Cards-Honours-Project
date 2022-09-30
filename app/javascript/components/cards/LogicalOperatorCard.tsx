@@ -59,7 +59,7 @@ export default function LogicalOperatorCard({
         setOutputs({ ...outputs, [id]: false });
       }
     }
-  }, [operator, outputs[inputs[id].id1], outputs[inputs[id].id2]]);
+  }, [operator, outputs[inputs[id].id1], outputs[inputs[id].id2], inputs[id].forceRender]);
 
   const cardProps = {
     startPos,

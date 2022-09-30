@@ -60,7 +60,7 @@ export default function StringSplitCard({
     });
     newOutputs[id] = newOutputIds;
     setOutputs(newOutputs);
-  }, [outputs[inputs[id].id1], split]);
+  }, [outputs[inputs[id].id1], split, inputs[id].forceRender]);
 
   const cardProps = {
     startPos,

@@ -38,11 +38,10 @@ export default function ProductCard({
   };
 
   useEffect(() => {
-    console.log('HELLO');
     let total: number = 1;
     inputs[id].id0.forEach((i: string) => (total *= outputs[i]));
     if (total !== outputs[id]) setOutputs({ ...outputs, [id]: total });
-  }, [inputs[id].id0.map((i: string) => outputs[i])]);
+  }, [inputs[id].id0.map((i: string) => outputs[i]), inputs[id].forceRender]);
 
   const cardProps = {
     startPos,
