@@ -16,6 +16,7 @@ import FilterCard from '@cc-components/cards/FilterCard';
 import StrLengthCard from '@cc-cards/StrLengthCard';
 import ReduceCard from '@cc-cards/ReduceCard';
 import ProductCard from '@cc-cards/ProductCard';
+import DivisionCard from '@cc-cards/DivisionCard';
 
 const cards = {
   number: NumberCard,
@@ -35,6 +36,7 @@ const cards = {
   filter: FilterCard,
   reduce: ReduceCard,
   product: ProductCard,
+  division: DivisionCard,
 };
 
 export default function Card(props) {

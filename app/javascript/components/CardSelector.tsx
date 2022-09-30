@@ -49,11 +49,9 @@ export default function CardSelector(props) {
         >
           Product
         </Button>
-        {/* <Button
-        onClick={() => Create.newSubtractCard(setCards, setInputs, setOutputs, inputs, outputs)}
-      >
-        Division Card
-      </Button> */}
+        <Button onClick={() => Create.newDivCard(setCards, setInputs, setOutputs, inputs, outputs)}>
+          Division
+        </Button>
       </ButtonGroup>
 
       <ButtonGroup variant="contained" orientation="vertical" color="success">
