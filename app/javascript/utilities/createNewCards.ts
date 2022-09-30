@@ -22,6 +22,7 @@ export {
   newReduceCard,
   newToNumCard,
   newToStrCard,
+  newSubstringCard,
 };
 
 const newNumberCard = (
@@ -249,6 +250,20 @@ const newStrLengthCard = (
   setOutputs({ ...outputs, [newId]: 0 });
 };
 
+const newSubstringCard = (
+  setCards: React.Dispatch<React.SetStateAction<CardType[]>>,
+  setInputs: React.Dispatch<React.SetStateAction<object>>,
+  setOutputs: React.Dispatch<React.SetStateAction<object>>,
+  inputs: object,
+  outputs: object
+) => {
+  const newId = uuid();
+  const newCard: CardType = { id: newId, position: defCardPos, type: 'substring' };
+  setCards((cards) => [...cards, newCard]);
+  setInputs({ ...inputs, [newId]: { id1: '', id2: '', id3: '', forceRender: false } });
+  setOutputs({ ...outputs, [newId]: '' });
+};
+
 const newToNumCard = (
   setCards: React.Dispatch<React.SetStateAction<CardType[]>>,
   setInputs: React.Dispatch<React.SetStateAction<object>>,
@@ -274,7 +289,7 @@ const newToStrCard = (
   const newCard: CardType = { id: newId, position: defCardPos, type: 'toString' };
   setCards((cards) => [...cards, newCard]);
   setInputs({ ...inputs, [newId]: { id1: '', forceRender: false } });
-  setOutputs({ ...outputs, [newId]: 0 });
+  setOutputs({ ...outputs, [newId]: '' });
 };
 
 const newReduceCard = (

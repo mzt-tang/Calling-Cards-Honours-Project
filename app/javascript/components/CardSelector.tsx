@@ -37,6 +37,11 @@ export default function CardSelector(props) {
         >
           String Split
         </Button>
+        <Button
+          onClick={() => Create.newSubstringCard(setCards, setInputs, setOutputs, inputs, outputs)}
+        >
+          Substring
+        </Button>
       </ButtonGroup>
 
       <ButtonGroup variant="contained" orientation="vertical" color="warning">

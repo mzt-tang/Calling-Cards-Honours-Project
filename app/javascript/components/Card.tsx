@@ -19,6 +19,7 @@ import ProductCard from '@cc-cards/ProductCard';
 import DivisionCard from '@cc-cards/DivisionCard';
 import ToStringCard from '@cc-cards/ToStringCard';
 import ToNumberCard from '@cc-cards/ToNumberCard';
+import SubstringCard from '@cc-cards/SubstringCard';
 
 const cards = {
   number: NumberCard,
@@ -41,6 +42,7 @@ const cards = {
   division: DivisionCard,
   toString: ToStringCard,
   toNumber: ToNumberCard,
+  substring: SubstringCard,
 };
 
 export default function Card(props) {
