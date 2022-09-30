@@ -11,16 +11,16 @@ export default function App() {
   const [inputs, setInputs] = useState<object>({});
   const [outputs, setOutputs] = useState<object>({});
 
-  const [console, setConsole] = useState<string[]>([]);
+  const [appConsole, setAppConsole] = useState<string[]>([]);
 
   const [connect, setConnect] = useState<string>(null); // Connect
 
   const toConsole = (log: string) => {
-    setConsole((console) => [...console, `>>\t${log}`]);
+    setAppConsole((console) => [...console, `>>\t${log}`]);
   };
 
   const clearConsole = () => {
-    setConsole([]);
+    setAppConsole([]);
   };
 
   const addArrow = ({ start, end }) => {
@@ -31,9 +31,9 @@ export default function App() {
     arrows.forEach((a) => {
       const end = a.end;
       const o = end.substring(0, end.length - 4);
-      if (end.substring(end.length - 1) === '0') {
+      if (id.substring(id.length - 1) === '0') {
         setInputs({ ...inputs, [o]: { ...inputs[o], [end.substring(end.length - 3)]: [] } });
-      } else {
+      } else if (id.substring(id.length - 5) !== 'START') {
         setInputs({ ...inputs, [o]: { ...inputs[o], [end.substring(end.length - 3)]: '' } });
       }
     });
@@ -110,7 +110,7 @@ export default function App() {
           {listCards}
         </Xwrapper>
       </div>
-      <Console console={console} />
+      <Console console={appConsole} />
     </div>
   );
 }

@@ -16,7 +16,7 @@ export default function ReduceCard({
   toConsole,
 }) {
   const log = useMemo(
-    () => (!Array.isArray(outputs[id]) ? 'invalid state' : outputs[id].toString()),
+    () => (typeof outputs[id] !== 'string' ? 'invalid state' : outputs[id]),
     [outputs[id]]
   );
   const connectorId = id + '#id1';
@@ -42,6 +42,7 @@ export default function ReduceCard({
     setCurrentElem(0);
 
     setOutputs(newOutputs);
+    setInputs({ ...inputs, [id]: { ...inputs[id], start: inputId } });
     // perhaps an inputs start sum should be created...? Todo: This should be done for loop resets beyond this method
   };
 
@@ -58,22 +59,28 @@ export default function ReduceCard({
   };
 
   // When first connecting to an input. Do a reset essentially. Todo: the reset needs to be fixed.
-  // useEffect(() => {
-  //   if (inputs[id].id1 === '') return;
-  //   setCurrentElem(0);
-  //   // delete all outputs objects that use the id from the outputs[id] array and empty the array from outputs[id]
-  //   const newOutputs = { ...outputs, [id]: '' };
+  useEffect(() => {
+    if (inputs[id].id1 === '') return;
 
-  //   // clean up outputs if output is an array
-  //   if (Array.isArray(outputs[id])) {
-  //     outputs[id].forEach((element) => {
-  //       delete newOutputs[element];
-  //     });
-  //   }
+    // delete all outputs objects that use the id from the outputs[id] array and empty the array from outputs[id]
+    const newOutputs = {
+      ...outputs,
+      [id]: outputs[inputs[id].start],
+      [sumId]: outputs[inputs[id].start],
+      [inputs[eleId].id1]: null,
+      [eleId]: outputs[outputs[inputs[id].id1][0]], // todo: this is dangerous when the input id is not connected yet.
+    };
+    setCurrentElem(0);
 
-  //   newOutputs[eleId] = outputs[outputs[inputs[id].id1][0]];
-  //   setOutputs(newOutputs);
-  // }, [outputs[inputs[id].id1], inputs[id].forceRender]);
+    // clean up outputs if output is an array
+    if (Array.isArray(outputs[id])) {
+      outputs[id].forEach((element) => {
+        delete newOutputs[element];
+      });
+    }
+
+    setOutputs(newOutputs);
+  }, [outputs[inputs[id].id1], inputs[id].forceRender]);
 
   // When first connected
   useEffect(() => {

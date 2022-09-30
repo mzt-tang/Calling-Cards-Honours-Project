@@ -304,6 +304,6 @@ const newReduceCard = (
   const sumId = newId + '#sum'
   const newCard: CardType = { id: newId, position: defCardPos, type: 'reduce' };
   setCards((cards) => [...cards, newCard]);
-  setInputs({ ...inputs, [newId]: { id1: '', forceRender: false }, [elemId]: { id1: '', forceRender: false } });
+  setInputs({ ...inputs, [newId]: { id1: '', start: '', forceRender: false }, [elemId]: { id1: '', forceRender: false } });
   setOutputs({ ...outputs, [newId]: '', [elemId]: '', [sumId]: '' });
 };
