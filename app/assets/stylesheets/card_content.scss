@@ -63,11 +63,11 @@
     transform: translate(-50%, -50%);
 
     &.out {
-      transform: translate(-150px, -50%);
+      transform: translate(-120px, -50%);
     }
 
     &.in {
-      transform: translate(150px, -50%);
+      transform: translate(100px, -50%);
     }
   }
 
@@ -88,4 +88,18 @@
   left: 50%;
   transform: translate(-50%, -50%);
   background-color: #8B918A;
+}
+
+// these should be expanded upon and made more general for all content types
+.loop {
+  display: grid;
+  grid-template-columns: [start] 30px [c2] 140px [c3] auto [c4] 140px [c5] 30px [end];
+  grid-template-rows: [start] 30px [head] 15px [r2] auto [r3] 15px [last-line];
+}
+
+
+.substring {
+  display: grid;
+  grid-template-columns: [start] 10px [c2] 90px [c3] auto [c4] 110px [c5] 10px [end];
+  grid-template-rows: [start] 30px [head] 10px [r3] 60px [r4] auto [r5] 60px [r6] 10px [end];
 }

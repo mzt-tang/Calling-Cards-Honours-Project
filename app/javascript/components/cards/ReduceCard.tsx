@@ -125,22 +125,56 @@ export default function ReduceCard({
   // a element output node
   return (
     <CardWrapper {...cardProps}>
+      <div className="loop">
+        <div
+          style={{
+            display: 'grid',
+            placeItems: 'center',
+            backgroundColor: 'gray',
+            width: 140,
+            height: 40,
+            borderRadius: 5,
+            gridColumnStart: 'c2',
+            gridColumnEnd: 'span 1',
+            gridRowStart: 'r2',
+            gridRowEnd: 'span 1',
+          }}
+        >
+          ST | SUM | ELEM
+        </div>
+        <div
+          style={{
+            display: 'grid',
+            placeItems: 'center',
+            backgroundColor: 'gray',
+            width: 140,
+            height: 40,
+            borderRadius: 5,
+            gridColumnStart: 'c4',
+            gridColumnEnd: 'span 1',
+            gridRowStart: 'r2',
+            gridRowEnd: 'span 1',
+          }}
+        >
+          ELEMENT IN
+        </div>
+      </div>
       <div id={connectorId} className="connector input center" onClick={handleActualInput} />
       <div
         id={startConnectorId}
-        style={{ transform: 'translate(-180px, -50%)' }}
+        style={{ transform: 'translate(-160px, -50%)' }}
         className="connector element minor"
         onClick={handleStartSumInput}
       />
       <div
         id={sumId}
-        style={{ transform: 'translate(-140px, -50%)' }}
+        style={{ transform: 'translate(-120px, -50%)' }}
         className="connector element minor"
         onClick={() => takeId(sumId)} // A 'limit' output sum to be stopped updating when the element reaches max.
       />
       <div
         id={eleId}
-        style={{ transform: 'translate(-100px, -50%)' }}
+        style={{ transform: 'translate(-80px, -50%)' }}
         className="connector element"
         onClick={() => {
           takeId(eleId);
@@ -148,7 +182,7 @@ export default function ReduceCard({
       />
       <div
         id={eleConnectorId}
-        style={{ transform: 'translate(140px, -50%)' }}
+        style={{ transform: 'translate(100px, -50%)' }}
         className="connector element"
         onClick={handleLoopInput}
       />

@@ -1,5 +1,4 @@
 import React, { useEffect, useMemo, useState } from 'react';
-import PositionType from '@cc-types/position';
 import { v4 as uuid } from 'uuid';
 
 import '@cc-styles/card_content.scss';
@@ -101,6 +100,41 @@ export default function MapCard({
 
   return (
     <CardWrapper {...cardProps}>
+      <div className="loop">
+        <div
+          style={{
+            display: 'grid',
+            placeItems: 'center',
+            backgroundColor: 'gray',
+            width: 140,
+            height: 40,
+            borderRadius: 5,
+            gridColumnStart: 'c2',
+            gridColumnEnd: 'span 1',
+            gridRowStart: 'r2',
+            gridRowEnd: 'span 1',
+          }}
+        >
+          ELEMENT OUT
+        </div>
+        <div
+          style={{
+            display: 'grid',
+            placeItems: 'center',
+            backgroundColor: 'gray',
+            width: 140,
+            height: 40,
+            borderRadius: 5,
+            gridColumnStart: 'c4',
+            gridColumnEnd: 'span 1',
+            gridRowStart: 'r2',
+            gridRowEnd: 'span 1',
+          }}
+        >
+          ELEMENT IN
+        </div>
+      </div>
+
       <div id={connectorId} className="connector input center" onClick={handleActualInput} />
       <div
         id={eleId}

@@ -106,6 +106,40 @@ export default function FilterCard({
 
   return (
     <CardWrapper {...cardProps}>
+      <div className="loop">
+        <div
+          style={{
+            display: 'grid',
+            placeItems: 'center',
+            backgroundColor: 'gray',
+            width: 120,
+            height: 40,
+            borderRadius: 5,
+            gridColumnStart: 'c2',
+            gridColumnEnd: 'span 1',
+            gridRowStart: 'r2',
+            gridRowEnd: 'span 1',
+          }}
+        >
+          ELEMENT OUT
+        </div>
+        <div
+          style={{
+            display: 'grid',
+            placeItems: 'center',
+            backgroundColor: 'gray',
+            width: 120,
+            height: 40,
+            borderRadius: 5,
+            gridColumnStart: 'c4',
+            gridColumnEnd: 'span 1',
+            gridRowStart: 'r2',
+            gridRowEnd: 'span 1',
+          }}
+        >
+          ELEMENT IN
+        </div>
+      </div>
       <div id={connectorId} className="connector input center" onClick={handleActualInput} />
       <div
         id={eleId}
