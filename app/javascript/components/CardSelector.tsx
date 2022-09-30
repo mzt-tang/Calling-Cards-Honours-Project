@@ -44,11 +44,11 @@ export default function CardSelector(props) {
         >
           Subtract
         </Button>
-        {/* <Button
-        onClick={() => Create.newSubtractCard(setCards, setInputs, setOutputs, inputs, outputs)}
-      >
-        Multiplication Card
-      </Button> */}
+        <Button
+          onClick={() => Create.newProdCard(setCards, setInputs, setOutputs, inputs, outputs)}
+        >
+          Product
+        </Button>
         {/* <Button
         onClick={() => Create.newSubtractCard(setCards, setInputs, setOutputs, inputs, outputs)}
       >

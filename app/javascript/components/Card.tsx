@@ -14,7 +14,8 @@ import StringSplitCard from '@cc-cards/StringSplitCard';
 import MapCard from '@cc-components/cards/MapCard';
 import FilterCard from '@cc-components/cards/FilterCard';
 import StrLengthCard from '@cc-cards/StrLengthCard';
-import ReduceCard from '@cc-components/cards/ReduceCard';
+import ReduceCard from '@cc-cards/ReduceCard';
+import ProductCard from '@cc-cards/ProductCard';
 
 const cards = {
   number: NumberCard,
@@ -33,6 +34,7 @@ const cards = {
   map: MapCard,
   filter: FilterCard,
   reduce: ReduceCard,
+  product: ProductCard,
 };
 
 export default function Card(props) {

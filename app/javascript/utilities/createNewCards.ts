@@ -5,6 +5,7 @@ export {
   newNumberCard,
   newSumCard,
   newSubtractCard,
+  newProdCard,
   newStringCard,
   newStrLengthCard,
   newConcatCard,
@@ -56,6 +57,20 @@ const newSubtractCard = (
   const newCard: CardType = { id: newId, position: defCardPos, type: 'subtract' };
   setCards((cards) => [...cards, newCard]);
   setInputs({ ...inputs, [newId]: { id1: 0, id2: 0, forceRender: false } });
+  setOutputs({ ...outputs, [newId]: 0 });
+};
+
+const newProdCard = (
+  setCards: React.Dispatch<React.SetStateAction<CardType[]>>,
+  setInputs: React.Dispatch<React.SetStateAction<object>>,
+  setOutputs: React.Dispatch<React.SetStateAction<object>>,
+  inputs: object,
+  outputs: object
+) => {
+  const newId = uuid();
+  const newCard: CardType = { id: newId, position: defCardPos, type: 'product' };
+  setCards((cards) => [...cards, newCard]);
+  setInputs({ ...inputs, [newId]: { id0: [], forceRender: false } });
   setOutputs({ ...outputs, [newId]: 0 });
 };
 
