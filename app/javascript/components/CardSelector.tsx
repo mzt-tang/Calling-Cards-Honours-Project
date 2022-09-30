@@ -10,45 +10,39 @@ export default function CardSelector(props) {
     <div className="selector">
       <ButtonGroup variant="contained" orientation="vertical" color="primary">
         <Button onClick={() => Create.newFileReadCard(setCards, setOutputs, outputs)}>
-          File Read Card
+          File Read
         </Button>
-        <Button onClick={() => Create.newWriteCard(setCards, setInputs, inputs)}>
-          File Write Card
-        </Button>
+        <Button onClick={() => Create.newWriteCard(setCards, setInputs, inputs)}>File Write</Button>
       </ButtonGroup>
 
       <ButtonGroup variant="contained" orientation="vertical" color="secondary">
-        <Button onClick={() => Create.newStringCard(setCards, setOutputs, outputs)}>
-          String Card
-        </Button>
+        <Button onClick={() => Create.newStringCard(setCards, setOutputs, outputs)}>String</Button>
         <Button
           onClick={() => Create.newStrLengthCard(setCards, setInputs, setOutputs, inputs, outputs)}
         >
-          String Length Card
+          String Length
         </Button>
         <Button
           onClick={() => Create.newConcatCard(setCards, setInputs, setOutputs, inputs, outputs)}
         >
-          String Concat Card
+          String Concat
         </Button>
         <Button
           onClick={() => Create.newSplitCard(setCards, setInputs, setOutputs, inputs, outputs)}
         >
-          String Split Card
+          String Split
         </Button>
       </ButtonGroup>
 
       <ButtonGroup variant="contained" orientation="vertical" color="warning">
-        <Button onClick={() => Create.newNumberCard(setCards, setOutputs, outputs)}>
-          Number Card
-        </Button>
+        <Button onClick={() => Create.newNumberCard(setCards, setOutputs, outputs)}>Number</Button>
         <Button onClick={() => Create.newSumCard(setCards, setInputs, setOutputs, inputs, outputs)}>
-          Sum Card
+          Sum
         </Button>
         <Button
           onClick={() => Create.newSubtractCard(setCards, setInputs, setOutputs, inputs, outputs)}
         >
-          Subtract Card
+          Subtract
         </Button>
         {/* <Button
         onClick={() => Create.newSubtractCard(setCards, setInputs, setOutputs, inputs, outputs)}
@@ -93,6 +87,11 @@ export default function CardSelector(props) {
           onClick={() => Create.newFilterCard(setCards, setInputs, setOutputs, inputs, outputs)}
         >
           Filter
+        </Button>
+        <Button
+          onClick={() => Create.newReduceCard(setCards, setInputs, setOutputs, inputs, outputs)}
+        >
+          Reduce
         </Button>
       </ButtonGroup>
     </div>

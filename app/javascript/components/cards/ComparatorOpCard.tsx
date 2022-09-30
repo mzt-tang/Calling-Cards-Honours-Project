@@ -15,8 +15,7 @@ export default function ComparatorOpCard({
   giveInput,
   toConsole,
 }) {
-  // const log = useMemo(() => outputs[id].toString(), [outputs[id]]);
-  const log = id;
+  const log = useMemo(() => (outputs[id] === null ? '' : outputs[id].toString()), [outputs[id]]);
   const connectorOneId = id + '#id1';
   const connectorTwoId = id + '#id2';
 

@@ -57,6 +57,19 @@ export default function MapCard({
     //   setCurrentElem(0);
     //   return;
     // }
+
+    // force a render of the element's input
+    if (outputs[inputs[eleId].id1] === null) {
+      setInputs({
+        ...inputs,
+        [inputs[eleId].id1]: {
+          ...inputs[inputs[eleId].id1],
+          forceRender: !inputs[inputs[eleId].id1].forceRender,
+        },
+      });
+      return;
+    }
+
     const newElemId = uuid();
     const newElem = outputs[inputs[eleId].id1];
     const newOutputs = { ...outputs, [newElemId]: newElem };
@@ -64,6 +77,7 @@ export default function MapCard({
 
     if (currentElem < outputs[inputs[id].id1].length - 1) {
       newOutputs[eleId] = outputs[outputs[inputs[id].id1][currentElem + 1]];
+      newOutputs[inputs[eleId].id1] = null; // force the element's output to be null
       setCurrentElem(currentElem + 1);
     }
 

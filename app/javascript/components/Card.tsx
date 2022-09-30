@@ -14,6 +14,7 @@ import StringSplitCard from '@cc-cards/StringSplitCard';
 import MapCard from '@cc-components/cards/MapCard';
 import FilterCard from '@cc-components/cards/FilterCard';
 import StrLengthCard from '@cc-cards/StrLengthCard';
+import ReduceCard from '@cc-components/cards/ReduceCard';
 
 const cards = {
   number: NumberCard,
@@ -31,6 +32,7 @@ const cards = {
   notOperator: NotCard,
   map: MapCard,
   filter: FilterCard,
+  reduce: ReduceCard,
 };
 
 export default function Card(props) {

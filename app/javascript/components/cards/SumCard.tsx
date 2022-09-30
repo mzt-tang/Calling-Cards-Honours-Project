@@ -31,27 +31,27 @@ export default function SumCard({
   const handleInput = () => {
     const inputId = giveInput(connectorId);
     if (inputId === null || inputId == id) return;
-    setInputs({ ...inputs, [id]: [...inputs[id], inputId] });
+    setInputs({ ...inputs, [id]: { ...inputs[id], id0: [...inputs[id].id0, inputId] } });
   };
 
   useEffect(() => {
     let total: number = 0;
-    inputs[id].forEach((i: string) => (total += outputs[i]));
+    inputs[id].id0.forEach((i: string) => (total += outputs[i]));
     if (total !== outputs[id]) setOutputs({ ...outputs, [id]: total });
-  }, [inputs[id].map((i: string) => outputs[i])]);
+  }, [inputs[id].id0.map((i: string) => outputs[i])]);
 
   const cardProps = {
     startPos,
     title: 'Summation',
     toConsole,
     log,
-    width: null,
-    height: null,
+    width: 200,
+    height: 100,
   };
 
   return (
     <CardWrapper {...cardProps}>
-      <div className="content">{outputs[id]}</div>
+      <div className="content small">{outputs[id]}</div>
       <div id={connectorId} className="connector input center" onClick={handleInput} />
       <div id={id} className="connector output" onClick={() => takeId(id)} />
     </CardWrapper>

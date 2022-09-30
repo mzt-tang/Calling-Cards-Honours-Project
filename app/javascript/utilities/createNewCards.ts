@@ -17,6 +17,7 @@ export {
   newSplitCard,
   newMapCard,
   newFilterCard,
+  newReduceCard,
 };
 
 const newNumberCard = (
@@ -40,7 +41,7 @@ const newSumCard = (
   const newId = uuid();
   const newCard: CardType = { id: newId, position: defCardPos, type: 'summation' };
   setCards((cards) => [...cards, newCard]);
-  setInputs({ ...inputs, [newId]: [] });
+  setInputs({ ...inputs, [newId]: { id0: [], forceRender: false } });
   setOutputs({ ...outputs, [newId]: 0 });
 };
 
@@ -54,7 +55,7 @@ const newSubtractCard = (
   const newId = uuid();
   const newCard: CardType = { id: newId, position: defCardPos, type: 'subtract' };
   setCards((cards) => [...cards, newCard]);
-  setInputs({ ...inputs, [newId]: { id1: 0, id2: 0 } });
+  setInputs({ ...inputs, [newId]: { id1: 0, id2: 0, forceRender: false } });
   setOutputs({ ...outputs, [newId]: 0 });
 };
 
@@ -79,7 +80,7 @@ const newConcatCard = (
   const newId = uuid();
   const newCard: CardType = { id: newId, position: defCardPos, type: 'stringConcat' };
   setCards((cards) => [...cards, newCard]);
-  setInputs({ ...inputs, [newId]: { id1: '', id2: '' } });
+  setInputs({ ...inputs, [newId]: { id1: '', id2: '', forceRender: false } });
   setOutputs({ ...outputs, [newId]: '' });
 };
 
@@ -115,7 +116,7 @@ const newLogOperatorCard = (
   const newId = uuid();
   const newCard: CardType = { id: newId, position: defCardPos, type: 'logicalOperator' };
   setCards((cards) => [...cards, newCard]);
-  setInputs({ ...inputs, [newId]: { id1: '', id2: '' } });
+  setInputs({ ...inputs, [newId]: { id1: '', id2: '', forceRender: false } });
   setOutputs({ ...outputs, [newId]: false });
 };
 
@@ -143,7 +144,7 @@ const newNotCard = (
   const newId = uuid();
   const newCard: CardType = { id: newId, position: defCardPos, type: 'notOperator' };
   setCards((cards) => [...cards, newCard]);
-  setInputs({ ...inputs, [newId]: { id1: '', id2: '' } });
+  setInputs({ ...inputs, [newId]: { id1: '', id2: '', forceRender: false } });
   setOutputs({ ...outputs, [newId]: false });
 };
 
@@ -155,7 +156,7 @@ const newWriteCard = (
   const newId = uuid();
   const newCard: CardType = { id: newId, position: defCardPos, type: 'fileWrite' };
   setCards((cards) => [...cards, newCard]);
-  setInputs({ ...inputs, [newId]: { id1: '' } });
+  setInputs({ ...inputs, [newId]: { id1: '', forceRender: false } });
 };
 
 const newSplitCard = (
@@ -168,7 +169,7 @@ const newSplitCard = (
   const newId = uuid();
   const newCard: CardType = { id: newId, position: defCardPos, type: 'stringSplit' };
   setCards((cards) => [...cards, newCard]);
-  setInputs({ ...inputs, [newId]: { id1: '' } });
+  setInputs({ ...inputs, [newId]: { id1: '', forceRender: false } });
   setOutputs({ ...outputs, [newId]: [] });
 };
 
@@ -183,7 +184,7 @@ const newMapCard = (
   const elemId = newId + '#elem';
   const newCard: CardType = { id: newId, position: defCardPos, type: 'map' };
   setCards((cards) => [...cards, newCard]);
-  setInputs({ ...inputs, [newId]: { id1: '' }, [elemId]: { id1: ''} });
+  setInputs({ ...inputs, [newId]: { id1: '', forceRender: false }, [elemId]: { id1: '', forceRender: false } });
   setOutputs({ ...outputs, [newId]: [], [elemId]: '' });
 };
 
@@ -198,7 +199,7 @@ const newFilterCard = (
   const elemId = newId + '#elem';
   const newCard: CardType = { id: newId, position: defCardPos, type: 'filter' };
   setCards((cards) => [...cards, newCard]);
-  setInputs({ ...inputs, [newId]: { id1: '' }, [elemId]: { id1: ''} });
+  setInputs({ ...inputs, [newId]: { id1: '', forceRender: false }, [elemId]: { id1: '', forceRender: false } });
   setOutputs({ ...outputs, [newId]: [], [elemId]: '' });
 };
 
@@ -212,6 +213,22 @@ const newStrLengthCard = (
   const newId = uuid();
   const newCard: CardType = { id: newId, position: defCardPos, type: 'strLength' };
   setCards((cards) => [...cards, newCard]);
-  setInputs({ ...inputs, [newId]: { id1: '' } });
+  setInputs({ ...inputs, [newId]: { id1: '', forceRender: false } });
   setOutputs({ ...outputs, [newId]: 0 });
+};
+
+const newReduceCard = (
+  setCards: React.Dispatch<React.SetStateAction<CardType[]>>,
+  setInputs: React.Dispatch<React.SetStateAction<object>>,
+  setOutputs: React.Dispatch<React.SetStateAction<object>>,
+  inputs: object,
+  outputs: object
+) => {
+  const newId = uuid();
+  const elemId = newId + '#elem';
+  const sumId = newId + '#sum'
+  const newCard: CardType = { id: newId, position: defCardPos, type: 'reduce' };
+  setCards((cards) => [...cards, newCard]);
+  setInputs({ ...inputs, [newId]: { id1: '', forceRender: false }, [elemId]: { id1: '', forceRender: false } });
+  setOutputs({ ...outputs, [newId]: '', [elemId]: '', [sumId]: '' });
 };

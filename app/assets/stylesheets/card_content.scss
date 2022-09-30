@@ -59,13 +59,14 @@
   &.element {
     top: 100%;
     left: 50%;
+    transform: translate(-50%, -50%);
 
     &.out {
-      transform: translate(-650%, -50%);
+      transform: translate(-150px, -50%);
     }
 
     &.in {
-      transform: translate(550%, -50%);
+      transform: translate(150px, -50%);
     }
   }
 

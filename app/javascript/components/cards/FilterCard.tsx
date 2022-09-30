@@ -68,8 +68,6 @@ export default function FilterCard({
     const filterBool = outputs[inputs[eleId].id1];
     if (typeof filterBool !== 'boolean') return;
     const newOutputs = { ...outputs };
-    console.log('output element', outputs[outputs[inputs[id].id1][currentElem]]);
-    console.log('filterBool', filterBool);
 
     if (filterBool) {
       const newElemId = uuid();
@@ -82,7 +80,6 @@ export default function FilterCard({
       newOutputs[eleId] = outputs[outputs[inputs[id].id1][currentElem + 1]];
       newOutputs[inputs[eleId].id1] = null; // force the element's output to be null
       setCurrentElem(currentElem + 1);
-      console.log('new element', newOutputs[eleId]);
     }
 
     setOutputs(newOutputs);
