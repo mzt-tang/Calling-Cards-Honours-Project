@@ -20,6 +20,8 @@ export {
   newMapCard,
   newFilterCard,
   newReduceCard,
+  newToNumCard,
+  newToStrCard,
 };
 
 const newNumberCard = (
@@ -242,6 +244,34 @@ const newStrLengthCard = (
 ) => {
   const newId = uuid();
   const newCard: CardType = { id: newId, position: defCardPos, type: 'strLength' };
+  setCards((cards) => [...cards, newCard]);
+  setInputs({ ...inputs, [newId]: { id1: '', forceRender: false } });
+  setOutputs({ ...outputs, [newId]: 0 });
+};
+
+const newToNumCard = (
+  setCards: React.Dispatch<React.SetStateAction<CardType[]>>,
+  setInputs: React.Dispatch<React.SetStateAction<object>>,
+  setOutputs: React.Dispatch<React.SetStateAction<object>>,
+  inputs: object,
+  outputs: object
+) => {
+  const newId = uuid();
+  const newCard: CardType = { id: newId, position: defCardPos, type: 'toNumber' };
+  setCards((cards) => [...cards, newCard]);
+  setInputs({ ...inputs, [newId]: { id1: '', forceRender: false } });
+  setOutputs({ ...outputs, [newId]: 0 });
+};
+
+const newToStrCard = (
+  setCards: React.Dispatch<React.SetStateAction<CardType[]>>,
+  setInputs: React.Dispatch<React.SetStateAction<object>>,
+  setOutputs: React.Dispatch<React.SetStateAction<object>>,
+  inputs: object,
+  outputs: object
+) => {
+  const newId = uuid();
+  const newCard: CardType = { id: newId, position: defCardPos, type: 'toString' };
   setCards((cards) => [...cards, newCard]);
   setInputs({ ...inputs, [newId]: { id1: '', forceRender: false } });
   setOutputs({ ...outputs, [newId]: 0 });

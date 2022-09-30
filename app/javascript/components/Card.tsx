@@ -17,6 +17,8 @@ import StrLengthCard from '@cc-cards/StrLengthCard';
 import ReduceCard from '@cc-cards/ReduceCard';
 import ProductCard from '@cc-cards/ProductCard';
 import DivisionCard from '@cc-cards/DivisionCard';
+import ToStringCard from '@cc-cards/ToStringCard';
+import ToNumberCard from '@cc-cards/ToNumberCard';
 
 const cards = {
   number: NumberCard,
@@ -37,6 +39,8 @@ const cards = {
   reduce: ReduceCard,
   product: ProductCard,
   division: DivisionCard,
+  toString: ToStringCard,
+  toNumber: ToNumberCard,
 };
 
 export default function Card(props) {

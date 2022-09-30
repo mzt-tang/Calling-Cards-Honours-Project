@@ -31,7 +31,11 @@ export default function App() {
     arrows.forEach((a) => {
       const end = a.end;
       const o = end.substring(0, end.length - 4);
-      setInputs({ ...inputs, [o]: { ...inputs[o], [end.substring(end.length - 3)]: '' } });
+      if (end.substring(end.length - 1) === '0') {
+        setInputs({ ...inputs, [o]: { ...inputs[o], [end.substring(end.length - 3)]: [] } });
+      } else {
+        setInputs({ ...inputs, [o]: { ...inputs[o], [end.substring(end.length - 3)]: '' } });
+      }
     });
     setArrows(arrows.filter((a) => `${a.start}-${a.end}` !== id));
   };

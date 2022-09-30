@@ -28,6 +28,11 @@ export default function CardSelector(props) {
           String Concat
         </Button>
         <Button
+          onClick={() => Create.newToStrCard(setCards, setInputs, setOutputs, inputs, outputs)}
+        >
+          Number to String
+        </Button>
+        <Button
           onClick={() => Create.newSplitCard(setCards, setInputs, setOutputs, inputs, outputs)}
         >
           String Split
@@ -51,6 +56,11 @@ export default function CardSelector(props) {
         </Button>
         <Button onClick={() => Create.newDivCard(setCards, setInputs, setOutputs, inputs, outputs)}>
           Division
+        </Button>
+        <Button
+          onClick={() => Create.newToNumCard(setCards, setInputs, setOutputs, inputs, outputs)}
+        >
+          String to Number
         </Button>
       </ButtonGroup>
 
