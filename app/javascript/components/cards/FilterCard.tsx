@@ -15,7 +15,13 @@ export default function FilterCard({
   giveInput,
   toConsole,
 }) {
-  const log = useMemo(() => outputs[id].map((eId) => outputs[eId]).join(', '), [outputs[id]]);
+  const log = useMemo(
+    () =>
+      !Array.isArray(outputs[id])
+        ? 'invalid state'
+        : outputs[id].map((eId) => outputs[eId]).join(', '),
+    [outputs[id]]
+  );
   const connectorId = id + '#id1';
 
   const eleId = id + '#elem';

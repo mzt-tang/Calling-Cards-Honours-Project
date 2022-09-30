@@ -27,7 +27,13 @@ export default function StringSplitCard({
   giveInput: (id: string) => string;
   toConsole: (log: string) => void;
 }) {
-  const log = useMemo(() => outputs[id].map((eleId) => outputs[eleId]).join(', '), [outputs[id]]);
+  const log = useMemo(
+    () =>
+      !Array.isArray(outputs[id])
+        ? 'invalid state'
+        : outputs[id].map((eleId) => outputs[eleId]).join(', '),
+    [outputs[id]]
+  );
   const connectorId = id + '#id1';
 
   const handleInput = () => {

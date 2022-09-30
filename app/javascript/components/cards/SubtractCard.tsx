@@ -25,7 +25,10 @@ export default function SubstractCard({
   giveInput: (id: string) => string;
   toConsole: (log: string) => void;
 }) {
-  const log = useMemo(() => outputs[id].toString(), [outputs[id]]);
+  const log = useMemo(
+    () => (typeof outputs[id] !== 'number' ? 'invalid state' : outputs[id].toString()),
+    [outputs[id]]
+  );
   const connectorOneId = id + '#id1';
   const connectorTwoId = id + '#id2';
 

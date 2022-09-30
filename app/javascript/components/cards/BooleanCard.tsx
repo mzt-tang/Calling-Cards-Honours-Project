@@ -3,7 +3,10 @@ import { ButtonGroup, Button } from '@mui/material';
 import CardWrapper from '@cc-components/CardWrapper';
 
 export default function BooleanCard({ id, startPos, outputs, setOutputs, takeId, toConsole }) {
-  const log = useMemo(() => outputs[id].toString(), [outputs[id]]);
+  const log = useMemo(
+    () => (typeof outputs[id] !== 'boolean' ? 'invalid state' : outputs[id].toString()),
+    [outputs[id]]
+  );
   const cardProps = {
     startPos,
     title: 'Boolean',

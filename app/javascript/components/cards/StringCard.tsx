@@ -20,7 +20,10 @@ export default function StringCard({
   takeId: (id: string) => void;
   toConsole: (log: string) => void;
 }) {
-  const log = useMemo(() => outputs[id], [outputs[id]]);
+  const log = useMemo(
+    () => (typeof outputs[id] !== 'string' ? 'invalid state' : outputs[id]),
+    [outputs[id]]
+  );
   const cardProps = {
     startPos,
     title: 'String',

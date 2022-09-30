@@ -12,7 +12,10 @@ export default function StrLengthCard({
   giveInput,
   toConsole,
 }) {
-  const log = useMemo(() => outputs[id].toString(), [outputs[id]]);
+  const log = useMemo(
+    () => (typeof outputs[id] !== 'number' ? 'invalid state' : outputs[id].toString()),
+    [outputs[id]]
+  );
   const connectorId = id + '#id1';
 
   const handleInput = () => {

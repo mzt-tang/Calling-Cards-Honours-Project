@@ -15,7 +15,10 @@ export default function ReduceCard({
   giveInput,
   toConsole,
 }) {
-  const log = useMemo(() => (outputs[id] === null ? '' : outputs[id].toString()), [outputs[id]]);
+  const log = useMemo(
+    () => (!Array.isArray(outputs[id]) ? 'invalid state' : outputs[id].toString()),
+    [outputs[id]]
+  );
   const connectorId = id + '#id1';
 
   const eleId = id + '#elem';

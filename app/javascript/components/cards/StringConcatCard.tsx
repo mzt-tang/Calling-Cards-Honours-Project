@@ -25,7 +25,10 @@ export default function StringConcatCard({
   giveInput: (id: string) => string;
   toConsole: (log: string) => void;
 }) {
-  const log = useMemo(() => outputs[id], [outputs[id]]);
+  const log = useMemo(
+    () => (typeof outputs[id] !== 'string' ? 'invalid state' : outputs[id]),
+    [outputs[id]]
+  );
   const connectorOneId = id + '#id1';
   const connectorTwoId = id + '#id2';
 

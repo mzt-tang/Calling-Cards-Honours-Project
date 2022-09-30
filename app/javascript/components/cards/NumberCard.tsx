@@ -20,7 +20,10 @@ export default function NumberCard({
   takeId: (id: string) => void;
   toConsole: (log: string) => void;
 }) {
-  const log = useMemo(() => outputs[id].toString(), [outputs[id]]);
+  const log = useMemo(
+    () => (typeof outputs[id] !== 'number' ? 'invalid state' : outputs[id].toString()),
+    [outputs[id]]
+  );
   const cardProps = {
     startPos,
     title: 'Number',

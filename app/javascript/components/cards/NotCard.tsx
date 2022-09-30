@@ -26,7 +26,10 @@ export default function NotCard({
   giveInput: (id: string) => string;
   toConsole: (log: string) => void;
 }) {
-  const log = useMemo(() => outputs[id], [outputs[id]]);
+  const log = useMemo(
+    () => (typeof outputs[id] !== 'boolean' ? 'invalid state' : outputs[id]),
+    [outputs[id]]
+  );
   const connectorId = id + '#id0';
 
   const handleInput = () => {
