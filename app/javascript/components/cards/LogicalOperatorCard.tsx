@@ -83,9 +83,9 @@ export default function LogicalOperatorCard({
           <MenuItem value="||">Or</MenuItem>
         </Select>
       </FormControl>
-      <div id={connectorOneId} className="connector input first" onClick={handleFirstInput} />
-      <div id={connectorTwoId} className="connector input second" onClick={handleSecondInput} />
-      <div id={id} className="connector output" onClick={() => takeId(id)} />
+      <div id={connectorOneId} className="input first booleanI" onClick={handleFirstInput} />
+      <div id={connectorTwoId} className="input second booleanI" onClick={handleSecondInput} />
+      <div id={id} className="output booleanO" onClick={() => takeId(id)} />
     </CardWrapper>
   );
 }

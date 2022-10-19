@@ -49,7 +49,7 @@ export default function FileReadCard({
         Upload File
         <input type="file" hidden onChange={handleReadFile} />
       </Button>
-      <div id={id} className="connector output" onClick={() => takeId(id)} />
+      <div id={id} className="output stringO" onClick={() => takeId(id)} />
     </CardWrapper>
   );
 }

@@ -55,8 +55,8 @@ export default function ProductCard({
   return (
     <CardWrapper {...cardProps}>
       <div className="content small">{outputs[id]}</div>
-      <div id={connectorId} className="connector input center" onClick={handleInput} />
-      <div id={id} className="connector output" onClick={() => takeId(id)} />
+      <div id={connectorId} className="input large center numberI" onClick={handleInput} />
+      <div id={id} className="output numberO" onClick={() => takeId(id)} />
     </CardWrapper>
   );
 }

@@ -36,7 +36,7 @@ export default function StringCard({
       <div className="content">
         <Input onChange={(e) => setOutputs({ ...outputs, [id]: e.target.value! })} />
       </div>
-      <div id={id} className="connector output" onClick={() => takeId(id)} />
+      <div id={id} className="output stringO" onClick={() => takeId(id)} />
     </CardWrapper>
   );
 }

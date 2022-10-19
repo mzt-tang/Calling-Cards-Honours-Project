@@ -76,8 +76,8 @@ export default function StringSplitCard({
       <div className="content small">
         <Input placeholder="' '" onChange={(e) => setSplit(e.target.value!)} />
       </div>
-      <div id={connectorId} className="connector input center" onClick={handleInput} />
-      <div id={id} className="connector output" onClick={() => takeId(id)} />
+      <div id={connectorId} className="input center stringI" onClick={handleInput} />
+      <div id={id} className="output listO" onClick={() => takeId(id)} />
     </CardWrapper>
   );
 }

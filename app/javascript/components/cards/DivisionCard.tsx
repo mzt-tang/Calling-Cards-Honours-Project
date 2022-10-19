@@ -61,9 +61,9 @@ export default function DivisionCard({
   return (
     <CardWrapper {...cardProps}>
       <div className="content small">{outputs[id]}</div>
-      <div id={connectorOneId} className="connector input first" onClick={handleFirstInput} />
-      <div id={connectorTwoId} className="connector input second" onClick={handleSecondInput} />
-      <div id={id} className="connector output" onClick={() => takeId(id)} />
+      <div id={connectorOneId} className="input numberI" onClick={handleFirstInput} />
+      <div id={connectorTwoId} className="input numberI" onClick={handleSecondInput} />
+      <div id={id} className="output numberO" onClick={() => takeId(id)} />
     </CardWrapper>
   );
 }

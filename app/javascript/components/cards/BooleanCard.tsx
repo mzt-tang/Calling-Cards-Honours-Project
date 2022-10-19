@@ -34,7 +34,7 @@ export default function BooleanCard({ id, startPos, outputs, setOutputs, takeId,
           False
         </Button>
       </ButtonGroup>
-      <div id={id} className="connector output" onClick={() => takeId(id)} />
+      <div id={id} className="output stringO" onClick={() => takeId(id)} />
     </CardWrapper>
   );
 }

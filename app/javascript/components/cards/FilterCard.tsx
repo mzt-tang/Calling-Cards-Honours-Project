@@ -140,16 +140,16 @@ export default function FilterCard({
           ELEMENT IN
         </div>
       </div>
-      <div id={connectorId} className="connector input center" onClick={handleActualInput} />
+      <div id={connectorId} className="input center listI" onClick={handleActualInput} />
       <div
         id={eleId}
-        className="connector element out"
+        className="element out unknownI"
         onClick={() => {
           takeId(eleId);
         }}
       />
-      <div id={eleConnectorId} className="connector element in" onClick={handleLoopInput} />
-      <div id={id} className="connector output" onClick={() => takeId(id)} />
+      <div id={eleConnectorId} className="element in booleanI" onClick={handleLoopInput} />
+      <div id={id} className="output listO" onClick={() => takeId(id)} />
     </CardWrapper>
   );
 }

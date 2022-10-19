@@ -70,7 +70,7 @@ export default function WriteCard({
       >
         download file
       </Button>
-      <div id={connectorId} className="connector input center" onClick={handleInput} />
+      <div id={connectorId} className="input center stringI" onClick={handleInput} />
     </CardWrapper>
   );
 }

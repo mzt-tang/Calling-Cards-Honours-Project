@@ -159,23 +159,23 @@ export default function ReduceCard({
           ELEMENT IN
         </div>
       </div>
-      <div id={connectorId} className="connector input center" onClick={handleActualInput} />
+      <div id={connectorId} className="input center listI" onClick={handleActualInput} />
       <div
         id={startConnectorId}
         style={{ transform: 'translate(-160px, -50%)' }}
-        className="connector element minor"
+        className="element in unknownI"
         onClick={handleStartSumInput}
       />
       <div
         id={sumId}
         style={{ transform: 'translate(-120px, -50%)' }}
-        className="connector element minor"
+        className="element out unknownI"
         onClick={() => takeId(sumId)} // A 'limit' output sum to be stopped updating when the element reaches max.
       />
       <div
         id={eleId}
         style={{ transform: 'translate(-80px, -50%)' }}
-        className="connector element"
+        className="element out unknownI"
         onClick={() => {
           takeId(eleId);
         }}
@@ -183,10 +183,10 @@ export default function ReduceCard({
       <div
         id={eleConnectorId}
         style={{ transform: 'translate(100px, -50%)' }}
-        className="connector element"
+        className="element inNT unknownI"
         onClick={handleLoopInput}
       />
-      <div id={id} className="connector output" onClick={() => takeId(id)} />
+      <div id={id} className="output unknownO" onClick={() => takeId(id)} />
     </CardWrapper>
   );
 }
