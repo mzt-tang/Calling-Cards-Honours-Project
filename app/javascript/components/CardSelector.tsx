@@ -90,6 +90,11 @@ export default function CardSelector(props) {
         <Button onClick={() => Create.newNotCard(setCards, setInputs, setOutputs, inputs, outputs)}>
           Not Operator
         </Button>
+        <Button
+          onClick={() => Create.newBranchCard(setCards, setInputs, setOutputs, inputs, outputs)}
+        >
+          If Else
+        </Button>
       </ButtonGroup>
 
       <ButtonGroup variant="contained" orientation="vertical" color="info">

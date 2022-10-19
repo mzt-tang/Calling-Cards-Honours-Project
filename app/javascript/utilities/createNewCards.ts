@@ -23,6 +23,7 @@ export {
   newToNumCard,
   newToStrCard,
   newSubstringCard,
+  newBranchCard,
 };
 
 const newNumberCard = (
@@ -306,4 +307,18 @@ const newReduceCard = (
   setCards((cards) => [...cards, newCard]);
   setInputs({ ...inputs, [newId]: { id1: '', start: '', forceRender: false }, [elemId]: { id1: '', forceRender: false } });
   setOutputs({ ...outputs, [newId]: '', [elemId]: '', [sumId]: '' });
+};
+
+const newBranchCard = (
+  setCards: React.Dispatch<React.SetStateAction<CardType[]>>,
+  setInputs: React.Dispatch<React.SetStateAction<object>>,
+  setOutputs: React.Dispatch<React.SetStateAction<object>>,
+  inputs: object,
+  outputs: object
+) => {
+  const newId = uuid();
+  const newCard: CardType = { id: newId, position: defCardPos, type: 'branch' };
+  setCards((cards) => [...cards, newCard]);
+  setInputs({ ...inputs, [newId]: { id1: '', id2: '', id3: '', forceRender: false } });
+  setOutputs({ ...outputs, [newId]: null });
 };

@@ -1,7 +1,7 @@
 import React, { useMemo, useEffect, useState } from 'react';
 import CardWrapper from '@cc-components/CardWrapper';
 
-export default function SubstringCard({
+export default function BranchCard({
   id,
   startPos,
   outputs,
@@ -12,13 +12,18 @@ export default function SubstringCard({
   giveInput,
   toConsole,
 }) {
-  const log = useMemo(
-    () => (typeof outputs[id] !== 'string' ? 'invalid state' : outputs[id].toString()),
-    [outputs[id]]
-  );
+  const log = useMemo(() => {
+    if (outputs[id] === undefined) {
+      return 'undefined';
+    }
+    if (outputs[id] === null) {
+      return 'null';
+    }
+    return outputs[id].hasOwnProperty('toString') ? 'invalid state' : outputs[id].toString();
+  }, [outputs[id]]);
   const connectorId = id + '#id1';
-  const startConId = id + '#id2';
-  const endConId = id + '#id3';
+  const trueConId = id + '#id2';
+  const falseConId = id + '#id3';
 
   const handleInput = () => {
     const inputId = giveInput(connectorId);
@@ -26,24 +31,24 @@ export default function SubstringCard({
     setInputs({ ...inputs, [id]: { ...inputs[id], id1: inputId } });
   };
 
-  const handleStartInput = () => {
-    const inputId = giveInput(startConId);
+  const handleTrueInput = () => {
+    const inputId = giveInput(trueConId);
     if (inputId === null || inputId == id) return;
     setInputs({ ...inputs, [id]: { ...inputs[id], id2: inputId } });
   };
 
-  const handleEndInput = () => {
-    const inputId = giveInput(endConId);
+  const handleFalseInput = () => {
+    const inputId = giveInput(falseConId);
     if (inputId === null || inputId == id) return;
     setInputs({ ...inputs, [id]: { ...inputs[id], id3: inputId } });
   };
 
   useEffect(() => {
     if (inputs[id].id1 === '') return;
-    const start = inputs[id].id2 === '' ? 0 : outputs[inputs[id].id2];
-    const end = inputs[id].id3 === '' ? outputs[inputs[id].id1].length : outputs[inputs[id].id3];
-    const substring = (outputs[inputs[id].id1] || '').substring(start, end);
-    if (substring !== outputs[id]) setOutputs({ ...outputs, [id]: substring });
+    const trueOutput = inputs[id].id2 === '' ? null : outputs[inputs[id].id2];
+    const falseOutput = inputs[id].id3 === '' ? null : outputs[inputs[id].id3];
+    const booleanSwitch = inputs[id].id1 === '' ? true : outputs[inputs[id].id1];
+    setOutputs({ ...outputs, [id]: booleanSwitch ? trueOutput : falseOutput });
   }, [
     outputs[inputs[id]['id1']],
     outputs[inputs[id]['id2']],
@@ -53,14 +58,13 @@ export default function SubstringCard({
 
   const cardProps = {
     startPos,
-    title: 'Substring',
+    title: 'If Else',
     toConsole,
     log,
   };
 
   return (
     <CardWrapper {...cardProps}>
-      {/* <div className="content"></div> */}
       <div className="substring">
         <div
           style={{
@@ -75,7 +79,7 @@ export default function SubstringCard({
             gridRowStart: 'r3',
             gridRowEnd: 'span 1',
           }}
-        >{`start index\nend index`}</div>
+        >{`true output\nfalse output`}</div>
         <div
           style={{
             display: 'grid',
@@ -95,15 +99,15 @@ export default function SubstringCard({
       </div>
       <div
         style={{ transform: 'translate(-50%, -25px)' }}
-        id={startConId}
+        id={trueConId}
         className="connector input minor"
-        onClick={handleStartInput}
+        onClick={handleTrueInput}
       />
       <div
         style={{ transform: 'translate(-50%, -5px)' }}
-        id={endConId}
+        id={falseConId}
         className="connector input minor"
-        onClick={handleEndInput}
+        onClick={handleFalseInput}
       />
       <div
         style={{ transform: 'translate(-50%, 40px)' }}

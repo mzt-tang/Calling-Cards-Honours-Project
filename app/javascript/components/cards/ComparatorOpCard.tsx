@@ -82,8 +82,6 @@ export default function ComparatorOpCard({
     title: 'Comparator Operator',
     toConsole,
     log,
-    width: null,
-    height: null,
   };
 
   return (

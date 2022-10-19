@@ -54,8 +54,6 @@ export default function StringConcatCard({
     title: 'String Concatenate',
     toConsole,
     log,
-    width: null,
-    height: null,
   };
 
   return (

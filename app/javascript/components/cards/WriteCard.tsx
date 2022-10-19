@@ -37,8 +37,6 @@ export default function WriteCard({
     title: 'File Write',
     toConsole,
     log,
-    width: null,
-    height: null,
   };
 
   const [fileName, setFileName] = useState('untitled.txt');
