@@ -24,7 +24,8 @@
   "include": [
     "**/*.ts",
     "**/*.tsx",
-    "**/*.scss"
+    "**/*.scss",
+    "**/*.js"
   ],
   "exclude": [
     "**/*.spec.ts",

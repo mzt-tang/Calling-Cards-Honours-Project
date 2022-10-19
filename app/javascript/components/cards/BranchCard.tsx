@@ -100,22 +100,22 @@ export default function BranchCard({
       <div
         style={{ transform: 'translate(-50%, -25px)' }}
         id={trueConId}
-        className="input unknownI"
+        className="input unknown"
         onClick={handleTrueInput}
       />
       <div
         style={{ transform: 'translate(-50%, -5px)' }}
         id={falseConId}
-        className="input unknownI"
+        className="input unknown"
         onClick={handleFalseInput}
       />
       <div
         style={{ transform: 'translate(-50%, 40px)' }}
         id={connectorId}
-        className="input booleanI"
+        className="input boolean"
         onClick={handleInput}
       />
-      <div id={id} className="output unknownO" onClick={() => takeId(id)} />
+      <div id={id} className="output unknown" onClick={() => takeId(id)} />
     </CardWrapper>
   );
 }

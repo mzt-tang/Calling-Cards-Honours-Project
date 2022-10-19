@@ -30,26 +30,15 @@
 }
 
 .output {
-  width: 0;
-  height: 0;
-  border: 10px solid transparent;
   position: absolute;
-  top: 40%;
+  width: 15px;
+  height: 15px;
+  top: 50%;
   left: 100%;
   transform: translate(-50%, 0%);
   &:hover {
     filter: brightness(60%);
   }
-}
-
-.output:after {
-  content: '';
-  position: absolute;
-  left: -10px;
-  top: 10px;
-  width: 0;
-  height: 0;
-  border: 10px solid transparent;
 }
 
 .input {
@@ -62,7 +51,7 @@
 
   &.large{
     height: 25px;
-    border-radius: 15%;
+    border-radius: 5%;
   }
   
   &.first {
@@ -126,62 +115,22 @@
   grid-template-rows: [start] 30px [head] 10px [r3] 60px [r4] auto [r5] 60px [r6] 10px [end];
 }
 
-.unknownO {
-  border-bottom-color: #42a5f5;
-}
-
-.unknownO:after {
-  border-top-color: #42a5f5;
-}
-
-.unknownI {
+.unknown {
   background-color: #42a5f5;
 }
 
-.stringO {
-  border-bottom-color: #ab47bc;
-}
-
-.stringO:after {
-  border-top-color: #ab47bc;
-}
-
-.stringI {
+.string {
   background-color: #ab47bc;
 }
 
-.numberO {
-  border-bottom-color: #f57c00;
-}
-
-.numberO:after {
-  border-top-color: #f57c00;
-}
-
-.numberI {
+.number {
   background-color: #f57c00;
 }
 
-.booleanO {
-  border-bottom-color: #388e3c;
-}
-
-.booleanO:after {
-  border-top-color: #388e3c;
-}
-
-.booleanI {
+.boolean {
   background-color: #388e3c;
 }
 
-.listO {
-  border-bottom-color: #0288d1;
-}
-
-.listO:after {
-  border-top-color: #0288d1;
-}
-
-.listI {
+.list {
   background-color: #0288d1;
 }

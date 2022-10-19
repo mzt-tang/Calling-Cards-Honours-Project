@@ -135,16 +135,16 @@ export default function MapCard({
         </div>
       </div>
 
-      <div id={connectorId} className="input center listI" onClick={handleActualInput} />
+      <div id={connectorId} className="input center list" onClick={handleActualInput} />
       <div
         id={eleId}
-        className="element out unknownI"
+        className="element out unknown"
         onClick={() => {
           takeId(eleId);
         }}
       />
-      <div id={eleConnectorId} className="element in unknownI" onClick={handleLoopInput} />
-      <div id={id} className="output listO" onClick={() => takeId(id)} />
+      <div id={eleConnectorId} className="element in unknown" onClick={handleLoopInput} />
+      <div id={id} className="output list" onClick={() => takeId(id)} />
     </CardWrapper>
   );
 }

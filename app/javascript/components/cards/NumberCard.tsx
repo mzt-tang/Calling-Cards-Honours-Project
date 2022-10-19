@@ -40,7 +40,7 @@ export default function NumberCard({
         type="number"
         onChange={(e) => setOutputs({ ...outputs, [id]: +e.target.value! })}
       />
-      <div id={id} className="output numberO" onClick={() => takeId(id)} />
+      <div id={id} className="output number" onClick={() => takeId(id)} />
     </CardWrapper>
   );
 }

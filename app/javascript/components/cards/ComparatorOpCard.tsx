@@ -102,9 +102,9 @@ export default function ComparatorOpCard({
           <MenuItem value=">=">Greater or equal to</MenuItem>
         </Select>
       </FormControl>
-      <div id={connectorOneId} className="input first unknownI" onClick={handleFirstInput} />
-      <div id={connectorTwoId} className="input second unknownI" onClick={handleSecondInput} />
-      <div id={id} className="output booleanO" onClick={() => takeId(id)} />
+      <div id={connectorOneId} className="input first unknown" onClick={handleFirstInput} />
+      <div id={connectorTwoId} className="input second unknown" onClick={handleSecondInput} />
+      <div id={id} className="output boolean" onClick={() => takeId(id)} />
     </CardWrapper>
   );
 }

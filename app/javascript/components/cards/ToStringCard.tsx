@@ -42,8 +42,8 @@ export default function ToStringCard({
   return (
     <CardWrapper {...cardProps}>
       <div className="content small">{outputs[id]}</div>
-      <div id={connectorId} className="input center numberI" onClick={handleInput} />
-      <div id={id} className="output stringO" onClick={() => takeId(id)} />
+      <div id={connectorId} className="input center number" onClick={handleInput} />
+      <div id={id} className="output string" onClick={() => takeId(id)} />
     </CardWrapper>
   );
 }

@@ -60,3 +60,10 @@ body {
 .arrow{
   z-index: 1000;
 }
+
+#mouse{
+  position:absolute;
+  height:1px;
+  width:1px;
+  border-radius:50%;
+}

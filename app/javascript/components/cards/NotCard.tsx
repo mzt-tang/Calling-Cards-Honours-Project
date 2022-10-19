@@ -58,8 +58,8 @@ export default function NotCard({
       <Button className="operation" variant="contained" color="success">
         {outputs[id]?.toString() || 'false'}
       </Button>
-      <div id={connectorId} className="input center booleanI" onClick={handleInput} />
-      <div id={id} className="output booleanO" onClick={() => takeId(id)} />
+      <div id={connectorId} className="input center boolean" onClick={handleInput} />
+      <div id={id} className="output boolean" onClick={() => takeId(id)} />
     </CardWrapper>
   );
 }

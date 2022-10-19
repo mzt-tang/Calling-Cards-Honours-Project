@@ -10,6 +10,10 @@ export default function App() {
   const [arrows, setArrows] = useState([]);
   const [inputs, setInputs] = useState<object>({});
   const [outputs, setOutputs] = useState<object>({});
+  const [mousePosition, setMousePosition] = useState({
+    left: 0,
+    top: 0,
+  });
 
   const [appConsole, setAppConsole] = useState<string[]>([]);
 
@@ -100,6 +104,10 @@ export default function App() {
     inputs,
     outputs,
   };
+
+  function handleMouseMove(ev) {
+    setMousePosition({ left: ev.pageX, top: ev.pageY });
+  }
 
   return (
     <div className="app">

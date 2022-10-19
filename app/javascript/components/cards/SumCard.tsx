@@ -55,8 +55,8 @@ export default function SumCard({
   return (
     <CardWrapper {...cardProps}>
       <div className="content small">{outputs[id]}</div>
-      <div id={connectorId} className="input large center numberI" onClick={handleInput} />
-      <div id={id} className="output numberO" onClick={() => takeId(id)} />
+      <div id={connectorId} className="input large center number" onClick={handleInput} />
+      <div id={id} className="output number" onClick={() => takeId(id)} />
     </CardWrapper>
   );
 }

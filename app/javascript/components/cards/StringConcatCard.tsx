@@ -59,9 +59,9 @@ export default function StringConcatCard({
   return (
     <CardWrapper {...cardProps}>
       <div className="content">{outputs[id]}</div>
-      <div id={connectorOneId} className="input first stringI" onClick={handleFirstInput} />
-      <div id={connectorTwoId} className="input second stringI" onClick={handleSecondInput} />
-      <div id={id} className="output stringO" onClick={() => takeId(id)} />
+      <div id={connectorOneId} className="input first string" onClick={handleFirstInput} />
+      <div id={connectorTwoId} className="input second string" onClick={handleSecondInput} />
+      <div id={id} className="output string" onClick={() => takeId(id)} />
     </CardWrapper>
   );
 }

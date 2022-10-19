@@ -61,9 +61,9 @@ export default function SubstractCard({
   return (
     <CardWrapper {...cardProps}>
       <div className="content small">{outputs[id]}</div>
-      <div id={connectorOneId} className="input first numberI" onClick={handleFirstInput} />
-      <div id={connectorTwoId} className="input second numberI" onClick={handleSecondInput} />
-      <div id={id} className="output numberO" onClick={() => takeId(id)} />
+      <div id={connectorOneId} className="input first number" onClick={handleFirstInput} />
+      <div id={connectorTwoId} className="input second number" onClick={handleSecondInput} />
+      <div id={id} className="output number" onClick={() => takeId(id)} />
     </CardWrapper>
   );
 }

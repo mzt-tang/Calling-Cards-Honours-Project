@@ -96,22 +96,22 @@ export default function SubstringCard({
       <div
         style={{ transform: 'translate(-50%, -25px)' }}
         id={startConId}
-        className="input numberI"
+        className="input number"
         onClick={handleStartInput}
       />
       <div
         style={{ transform: 'translate(-50%, -5px)' }}
         id={endConId}
-        className="input numberI"
+        className="input number"
         onClick={handleEndInput}
       />
       <div
         style={{ transform: 'translate(-50%, 40px)' }}
         id={connectorId}
-        className="input stringI"
+        className="input string"
         onClick={handleInput}
       />
-      <div id={id} className="output stringO" onClick={() => takeId(id)} />
+      <div id={id} className="output string" onClick={() => takeId(id)} />
     </CardWrapper>
   );
 }
