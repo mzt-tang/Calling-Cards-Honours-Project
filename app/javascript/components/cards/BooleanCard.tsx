@@ -12,8 +12,8 @@ export default function BooleanCard({ id, startPos, outputs, setOutputs, takeId,
     title: 'Boolean',
     toConsole,
     log,
-    width: 400,
-    height: 130,
+    width: 200,
+    height: 100,
   };
 
   const handleTrueSwitch = () => {
@@ -34,7 +34,7 @@ export default function BooleanCard({ id, startPos, outputs, setOutputs, takeId,
           False
         </Button>
       </ButtonGroup>
-      <div id={id} className="output string" onClick={() => takeId(id)} />
+      <div id={id} className="output boolean" onClick={() => takeId(id)} />
     </CardWrapper>
   );
 }

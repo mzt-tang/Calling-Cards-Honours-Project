@@ -84,7 +84,7 @@ export default function App() {
         end={a.end}
         startAnchor="right"
         endAnchor="left"
-        color="coral"
+        color="CornflowerBlue"
         path="smooth"
         zIndex={1}
         passProps={{
