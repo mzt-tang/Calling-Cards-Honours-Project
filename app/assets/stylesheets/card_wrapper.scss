@@ -1,7 +1,8 @@
 .box {
   position: absolute;
   cursor: move;
-  background-color: #181D08;
+  // background-color: #181D08;
+  background-color: #3f4d53;
   color: whitesmoke;
   border-radius: 5px;
   padding: 0;
@@ -11,7 +12,8 @@
   &.header {
     display: flex;
     align-items: center;
-    background-color: #5D770D;
+    // background-color: #5D770D;
+    background-color: #e5ac77;
     color: whitesmoke;
     height: 30px;
     border-radius: 5px 5px 0 0;
